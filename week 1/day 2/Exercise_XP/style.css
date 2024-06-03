@@ -1,0 +1,74 @@
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+nav {
+    background-color: black;
+    height: 60px;
+    color: white;
+    position: relative;
+    margin-bottom: 0;
+}
+a {
+    color: white;
+    margin-right: 0;
+}
+a:hover {
+    scale: 1.1;
+}
+.cardUP {
+    display: inline-block;
+    text-align: center;
+}
+#adv {
+    font-size: medium;
+}
+#shop {
+    position: absolute;
+    top: 1.2em;
+    right: 1em;
+}
+#signup {
+    position: absolute;
+    top: 1.2em;
+    right: 10em;
+}
+#login {
+    position: absolute;
+    top: 1.2em;
+    right: 15em;
+}
+i {
+    position: absolute;
+    margin-left: 1em;
+    top: 1.2em;
+}
+header {
+    background-image: url("index.jpeg");
+    background-size: cover;
+    height: 1200px;
+    top: 0;
+    position: relative;
+    margin-bottom: 0;
+}
+#header {
+    position: absolute;
+    top: 25%;
+    width: 85%;
+    left: 10%;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-size: 9vh;
+    margin-bottom: 0;
+    font-weight: 1000;
+}
+footer p {
+    text-align: center;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    COLOR: WHITE;
+}

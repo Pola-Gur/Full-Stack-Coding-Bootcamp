@@ -1,0 +1,91 @@
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+nav {
+    background-color: black;
+    height: 60px;
+    color: white;
+    position: relative;
+    margin-bottom: 0;
+}
+a {
+    color: white;
+    margin-right: 0;
+}
+a:hover {
+    scale: 1.1;
+}
+.cardUP{
+    display: inline-block;
+    text-align: center;
+}
+div {
+    position: relative;
+}
+span {
+    position: absolute;
+    top: 307px;
+    left: 20%;
+    right: 15%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+button {
+    position: absolute;
+    top: 345px;
+    left: 15%;
+    right: 15%;
+    font-size: small;
+    background-color: rgb(206, 191, 179);
+    border: none;
+}
+button:hover {
+    scale: 1.1;
+}
+img {
+    width: 235px;
+    margin: 60px;
+}
+main {
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: 60px;
+    justify-content: space-around;
+}
+#shop {
+    position: absolute;
+    top: 1.2em;
+    right: 1em;
+}
+#signup {
+    position: absolute;
+    top: 1.2em;
+    right: 10em;
+}
+#login {
+    position: absolute;
+    top: 1.2em;
+    right: 15em;
+}
+#home
+{
+    position: absolute;
+    margin-left: 3em;
+    top: 1.2em;
+}
+i {
+    position: absolute;
+    margin-left: 1em;
+    top: 1.35em;
+}
+footer p {
+    text-align: center;
+}
+footer {
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    COLOR: WHITE;
+}
