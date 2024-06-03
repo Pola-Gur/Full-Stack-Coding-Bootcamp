@@ -7,6 +7,7 @@ nav {
     color: white;
     position: relative;
     margin-bottom: 0;
+    width: 100%;
 }
 a {
     color: white;
@@ -44,46 +45,88 @@ button {
 button:hover {
     scale: 1.1;
 }
-img {
-    width: 235px;
-    margin: 60px;
-}
+
 main {
     display: inline-flex;
     flex-wrap: wrap;
     padding: 60px;
     justify-content: space-around;
 }
-#shop {
-    position: absolute;
-    top: 1.2em;
-    right: 1em;
+@media all and (min-width: 480px) { 
+    #shop {
+        position: absolute;
+        top: 1.2em;
+        right: 1em;
+    }
+    #signup {
+        position: absolute;
+        top: 1.2em;
+        right: 10em;
+    }
+    #login {
+        position: absolute;
+        top: 1.2em;
+        right: 15em;
+    }
+    #home
+    {
+        position: absolute;
+        margin-left: 3em;
+        top: 1.2em;
+    }
+    i {
+        position: absolute;
+        margin-left: 1em;
+        top: 1.35em;
+    }
+    img {
+        width: 235px;
+        margin: 60px;
+    }
 }
-#signup {
-    position: absolute;
-    top: 1.2em;
-    right: 10em;
-}
-#login {
-    position: absolute;
-    top: 1.2em;
-    right: 15em;
-}
-#home
-{
-    position: absolute;
-    margin-left: 3em;
-    top: 1.2em;
-}
-i {
-    position: absolute;
-    margin-left: 1em;
-    top: 1.35em;
+
+@media all and (max-width: 480px) { 
+    #shop {
+        position: absolute;
+        top: 1.2em;
+        right: 0.8em;
+        font-size:xx-small;
+    }
+    #signup {
+        position: absolute;
+        top: 1.2em;
+        right: 9em;
+        font-size: xx-small;
+    }
+    #login {
+        position: absolute;
+        top: 1.2em;
+        right: 13.5em;
+        font-size: xx-small;
+    }
+    
+    #home {
+        position: absolute;
+        margin-left: 3em;
+        top: 1.2em;
+        font-size: xx-small;
+    }
+    i {
+        position: absolute;
+        margin-left: 1em;
+        top: 1.35em;
+        font-size:xx-small;
+    }
+    img {
+        width: 235px;
+        margin: 20px;
+    }
 }
 footer p {
     text-align: center;
 }
 footer {
+    position: fixed;
     bottom: 0;
     background-color: black;
     width: 100%;

@@ -22,30 +22,80 @@ a:hover {
 #adv {
     font-size: medium;
 }
-#shop {
-    position: absolute;
-    top: 1.2em;
-    right: 1em;
+
+@media all and (min-width: 480px) { 
+    #shop {
+        position: absolute;
+        top: 1.2em;
+        right: 1em;
+    }
+    #signup {
+        position: absolute;
+        top: 1.2em;
+        right: 10em;
+    }
+    #login {
+        position: absolute;
+        top: 1.2em;
+        right: 15em;
+    }
+    i {
+        position: absolute;
+        margin-left: 1em;
+        top: 1.35em;
+    }
 }
-#signup {
-    position: absolute;
-    top: 1.2em;
-    right: 10em;
-}
-#login {
-    position: absolute;
-    top: 1.2em;
-    right: 15em;
-}
-i {
-    position: absolute;
-    margin-left: 1em;
-    top: 1.2em;
+
+@media all and (max-width: 480px) { 
+    #shop {
+        position: absolute;
+        top: 1.2em;
+        right: 1em;
+        font-size: x-small;
+    }
+    #signup {
+        position: absolute;
+        top: 1.2em;
+        right: 9.3em;
+        font-size: x-small;
+    }
+    #login {
+        position: absolute;
+        top: 1.2em;
+        right: 14em;
+        font-size: x-small;
+    }
+    i {
+        position: absolute;
+        margin-left: 1em;
+        top: 1.35em;
+        font-size:x-small;
+    }
+    header {
+        background-image: url("index.jpeg");
+        background-size: cover;
+        height: 1200px;
+        top: 0;
+        position: relative;
+        margin-bottom: 0;
+    }
+    #header {
+        position: absolute;
+        top: 25%;
+        width: 85%;
+        left: 10%;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        font-size: 9vh;
+        margin-bottom: 0;
+        font-weight: 1000;
+    }
 }
 header {
     background-image: url("index.jpeg");
     background-size: cover;
-    height: 1200px;
+    height: 95vh;
     top: 0;
     position: relative;
     margin-bottom: 0;
@@ -58,7 +108,7 @@ header {
     justify-content: center;
     color: white;
     text-align: center;
-    font-size: 9vh;
+    font-size: 7em;
     margin-bottom: 0;
     font-weight: 1000;
 }
