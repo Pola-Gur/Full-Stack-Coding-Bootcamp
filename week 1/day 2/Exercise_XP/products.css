@@ -1,14 +1,7 @@
 * {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
-nav {
-    background-color: black;
-    height: 60px;
-    color: white;
-    position: relative;
-    margin-bottom: 0;
-    width: 100%;
-}
+
 a {
     color: white;
     margin-right: 0;
@@ -52,7 +45,15 @@ main {
     padding: 60px;
     justify-content: space-around;
 }
-@media all and (min-width: 480px) { 
+@media all and (min-width: 900px) { 
+    nav {
+        background-color: black;
+        height: 60px;
+        color: white;
+        position: relative;
+        margin-bottom: 0;
+        width: 100%;
+    }
     #shop {
         position: absolute;
         top: 1.2em;
@@ -84,24 +85,76 @@ main {
         margin: 60px;
     }
 }
-
-@media all and (max-width: 480px) { 
+@media all and (max-width: 900px) and (min-width: 480px) { 
+    nav {
+        background-color: black;
+        height: 60px;
+        color: white;
+        position: relative;
+        margin-bottom: 0;
+        width: 100%;
+    }
     #shop {
         position: absolute;
         top: 1.2em;
-        right: 0.8em;
+        right: 10%;
+        font-size: smaller;
+    }
+    #signup {
+        position: absolute;
+        top: 1.2em;
+        right: 40%;
+        font-size: smaller;
+    }
+    #login {
+        position: absolute;
+        top: 1.2em;
+        right: 60%;
+        font-size: smaller;
+    }
+    #home
+    {
+        position: absolute;
+        margin-left: 3em;
+        top: 1.2em;
+        font-size: smaller;
+    }
+    i {
+        position: absolute;
+        margin-left: 1em;
+        top: 1em;
+    }
+    img {
+        width: 235px;
+        margin: 60px;
+    }
+}
+
+@media all and (max-width: 480px) { 
+    nav {
+        background-color: black;
+        height: 50px;
+        color: white;
+        position: relative;
+        margin-bottom: 0;
+        width: 100%;
+    }
+    #shop {
+        position: absolute;
+        top: 1.2em;
+        right: 9%;
         font-size:xx-small;
     }
     #signup {
         position: absolute;
         top: 1.2em;
-        right: 9em;
+        right: 40%;
         font-size: xx-small;
     }
     #login {
         position: absolute;
         top: 1.2em;
-        right: 13.5em;
+        right: 60%;
         font-size: xx-small;
     }
     
@@ -118,8 +171,8 @@ main {
         font-size:xx-small;
     }
     img {
-        width: 235px;
-        margin: 20px;
+        width: 180px;
+        margin: 5px;
     }
 }
 footer p {

@@ -1,47 +1,158 @@
 * {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
-nav {
-    background-color: black;
-    height: 60px;
-    color: white;
-    position: relative;
-    margin-bottom: 0;
-}
+
 .cardUP {
     display: inline-block;
     text-align: center;
 }
-@media all and (min-width: 480px) { 
+a {
+    color: white;
+    margin-right: 0;
+}
+a:hover {
+    scale: 1.1;
+}
+
+
+@media all and (min-width: 800px) { 
+    nav {
+        background-color: black;
+        height: 60px;
+        color: white;
+        position: relative;
+        margin-bottom: 0;
+        width: 102%;
+        position: center;
+    }
+    article {
+        background-image: url("index.jpeg");
+        background-size: cover;
+        position: absolute;
+        width: 100%;
+        height: 75%;
+        margin-bottom: 20px;
+    }
+    section {
+        color: black;
+        text-align: center;
+        left: 15%;
+        right: 15%;
+    }
+    section {
+       position: absolute;
+       top: 87%;
+       float: inherit;
+       height: 20%;
+    }
+    p {
+        text-align:center;
+        padding-top: 2%;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+    }
+    article p {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    form {
+        text-align:center;
+        padding-top: 15px;
+        font-size: 1em;
+        padding-bottom: 40px;
+        color: white;
+    }
     #shop {
         position: absolute;
         top: 1.2em;
-        right: 1em;
+        right: 10%;
+        font-size:small;
     }
     #signup {
         position: absolute;
         top: 1.2em;
-        right: 10em;
+        right: 30%;
+        font-size: small;
     }
     #login {
         position: absolute;
         top: 1.2em;
-        right: 15em;
+        right: 45%;
+        font-size: small;
     }
-    #home
-    {
+    
+    #home {
         position: absolute;
         margin-left: 3em;
         top: 1.2em;
+        font-size: small;
     }
     i {
         position: absolute;
         margin-left: 1em;
         top: 1.35em;
+        font-size:small;
     }
 }
-
-@media all and (max-width: 480px) { 
+@media all and (max-width: 480px) {
+    nav {
+        background-color: black;
+        height: 60px;
+        color: white;
+        position: relative;
+        margin-bottom: 0;
+        width: 100%;
+        position: center;
+    }
+    article {
+        background-image: url("index.jpeg");
+        background-size: cover;
+        position: absolute;
+        width: 95.5%;
+        height: 75%;
+        margin-bottom: 20px;
+    }
+    section {
+        color: black;
+        text-align: center;
+        left: 15%;
+        right: 15%;
+    }
+    section {
+       position: absolute;
+       top: 88%;
+       float: inherit;
+       height: 15%;
+       font-size: xx-small;
+    }
+    p {
+        text-align:center;
+        padding-top: 2%;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+    }
+    article p {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    form {
+        text-align:center;
+        padding-top: 15px;
+        font-size: 0.5em;
+        padding-bottom: 40px;
+        color: white;
+    }
+              nav {
+        background-color: black;
+        height: 60px;
+        color: white;
+        position: relative;
+        margin-bottom: 0;
+        width: 100%;
+        position: center;
+    }
     #shop {
         position: absolute;
         top: 1.2em;
@@ -74,41 +185,24 @@ nav {
         font-size:xx-small;
     }
 }
-a {
+@media all and (max-width: 800px) and (min-width: 480px) { 
+    nav {
+    background-color: black;
+    height: 60px;
     color: white;
-    margin-right: 0;
+    position: relative;
+    margin-bottom: 0;
+    width: 100%;
+    position: center;
 }
-a:hover {
-    scale: 1.1;
-}
-
 article {
     background-image: url("index.jpeg");
     background-size: cover;
     position: absolute;
-    width: 100%;
+    width: 97%;
     height: 75%;
     margin-bottom: 20px;
 }
-p {
-    text-align:center;
-    padding-top: 2%;
-    font-size: 2em;
-    font-weight: bold;
-    color: white;
-}
-article p {
-    padding-left: 40px;
-    padding-right: 40px;
-}
-form {
-    text-align:center;
-    padding-top: 15px;
-    font-size: 1em;
-    padding-bottom: 40px;
-    color: white;
-}
-@media all and (min-width: 480px) { 
     section {
         color: black;
         text-align: center;
@@ -117,26 +211,66 @@ form {
     }
     section {
        position: absolute;
-       top: 87%;
-       float: inherit;
-       height: 20%;
-    }
-}
-@media all and (max-width: 480px) {
-    section {
-        color: black;
-        text-align: center;
-        left: 15%;
-        right: 15%;
-    }
-    section {
-       position: absolute;
-       top: 85%;
+       top: 88%;
        float: inherit;
        height: 15%;
-       font-size: small;
+       font-size: xx-small;
+    }
+    p {
+        text-align:center;
+        padding-top: 2%;
+        font-size: 2em;
+        font-weight: bold;
+        color: white;
+    }
+    article p {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    form {
+        text-align:center;
+        padding-top: 15px;
+        font-size: 0.3em;
+        padding-bottom: 40px;
+        color: white;
+    }
+    nav {
+        background-color: black;
+        height: 60px;
+        color: white;
+        position: relative;
+        margin-bottom: 0;
+        width: 100%;
+        position: center;
+    }
+    #shop {
+        position: absolute;
+        top: 1.2em;
+        right: 1em;
+    }
+    #signup {
+        position: absolute;
+        top: 1.2em;
+        right: 10em;
+    }
+    #login {
+        position: absolute;
+        top: 1.2em;
+        right: 15em;
+    }
+    #home
+    {
+        position: absolute;
+        margin-left: 3em;
+        top: 1.2em;
+    }
+    i {
+        position: absolute;
+        margin-left: 1em;
+        top: 1.35em;
     }
 }
+
 #section {
     color: rgb(114, 14, 14);
 }
@@ -153,6 +287,6 @@ form {
         background-color: black;
         width: 100%;
         COLOR: WHITE;
-        height: 25px;
+        height: 30px;
     }
 
