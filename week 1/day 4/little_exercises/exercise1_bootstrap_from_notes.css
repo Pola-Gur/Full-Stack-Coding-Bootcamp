@@ -1,0 +1,6 @@
+.col-md-4 {
+    border: 1px solid black;
+    background-color: rgb(200, 204, 204);
+    height: 7vh;
+    margin-bottom: 3vh;
+}
