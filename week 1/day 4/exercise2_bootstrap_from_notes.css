@@ -1,0 +1,17 @@
+bodt {
+    text-align: center;
+}
+.alert, .btn {
+    width: 20vh;
+    margin-left: 3vh;
+    margin-right:3vh;
+}
+/* .form-label, .form-control {
+    margin: 30px;
+    margin-right: 35px; 
+} */
+
+/* form {
+    margin-top: 5vh;
+    text-align: center;
+} */
