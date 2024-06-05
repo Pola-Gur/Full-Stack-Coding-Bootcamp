@@ -2,10 +2,11 @@
     margin: auto 0;
     text-align: center;
     /* vertical-align: middle; */
-
-    display: grid;
-    grid-area:
-    "first second third"
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    
 }
 .box {
     height: 10vh;
@@ -18,21 +19,26 @@
 .first, .third {
     flex-direction: column;
     justify-content:space-around;
+    /* align-items: center;
+    align-content: center; */
     height: 100vh;
 }
 .second {
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
-    grid-area: second;
-    margin-right: 10vh;
-    margin-left: 10vh;
+    align-content: space-around;
+    flex-grow: 1;
+    align-self: stretch; 
+    /* margin-right: 10vh;
+    margin-left: 10vh; */
+    /* height: 100vh;*/
+    
 }
 .first {
     align-items: flex-end;
-    grid-area: first;
 }
 .third {
     align-items: flex-start;
-    grid-area: third;
 }
