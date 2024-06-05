@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    font-size: 10vh;
+    color: white;
+    vertical-align: middle;
+}
+.header {
+    text-align: center;
+    background-color:aqua;
+    height: 20vh;
+}
+.article {
+    text-align: center;
+    background-color:aqua;
+    margin: 30px;
+    width: 50%;
+    align-self: center;
+    height: 60vh;
+}
+.footer {
+    text-align: center;
+    background-color:aqua;
+    height: 20vh;
+}

@@ -1,0 +1,85 @@
+* {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header {
+    font-size: xx-large;
+    font-weight: bold;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+.number {
+    display: inline-block;
+    text-align: center;
+    margin-left: 3px;
+    margin-right: 3px;
+    width: 29%;
+    font-weight: bold;
+    margin-top: 25px;
+}
+.up, .number {
+    color: gray;
+}
+span {
+    font-size: 30px;
+    color:rgb(71, 71, 194);
+}
+p {
+    font-size: xx-small;
+}
+main {
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    margin-top: 2vh;
+}
+.c1 {
+    align-self: flex-end;  
+}
+.c2 {
+    align-self: flex-start;
+}
+.c3 {
+    align-self: center;
+}
+.card {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.b1 {
+    background-color: brown;
+}
+.b2 {
+    background-color: rgb(92, 92, 197);
+}
+.b3 {
+    background-color: rgb(94, 177, 177);
+}
+.bottom {
+    color: white;
+    height:50px;
+}
+.n {
+    font-size: x-small;
+    padding-top: 16px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    line-height: 0.2em;
+}
+/* .card {
+    display: inline-block;
+    width: 25%;
+    margin-top: 25px;
+}
+
+.occ {
+    font-size: xx-small;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+} */

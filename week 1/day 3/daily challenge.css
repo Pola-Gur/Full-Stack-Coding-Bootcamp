@@ -1,0 +1,38 @@
+.container {
+    margin: auto 0;
+    text-align: center;
+    /* vertical-align: middle; */
+
+    display: grid;
+    grid-area:
+    "first second third"
+}
+.box {
+    height: 10vh;
+    width: 10vh;
+    background-color: yellow;
+}
+.group {
+    display: flex;
+}
+.first, .third {
+    flex-direction: column;
+    justify-content:space-around;
+    height: 100vh;
+}
+.second {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    grid-area: second;
+    margin-right: 10vh;
+    margin-left: 10vh;
+}
+.first {
+    align-items: flex-end;
+    grid-area: first;
+}
+.third {
+    align-items: flex-start;
+    grid-area: third;
+}
