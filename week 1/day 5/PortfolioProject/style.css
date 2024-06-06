@@ -1,0 +1,31 @@
+.navbar, .navbar-brand {
+    font-size:2vh;
+}
+.navbar {
+    padding-right: 5vh;
+    padding-left: 5vh;
+}
+.profile-img {
+    width: 45vh;
+    border-radius: 30%;
+}
+body {
+    color: rgb(13, 7, 66);
+}
+.text-gradient {
+  background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bg-gradient-primary-to-secondary {
+    background: #1e30f3;
+    background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  }
+  .feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+  }
