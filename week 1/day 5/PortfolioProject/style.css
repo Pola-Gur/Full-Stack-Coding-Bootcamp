@@ -5,9 +5,13 @@
     padding-right: 5vh;
     padding-left: 5vh;
 }
+.frame {
+  border-radius: 50%;
+}
 .profile-img {
     width: 45vh;
-    border-radius: 30%;
+    border-radius: 50%;
+    padding: 15%;
 }
 body {
     color: rgb(13, 7, 66);
@@ -38,4 +42,3 @@ body {
   .start-icon {
     height: 5vh;
   }
-  
