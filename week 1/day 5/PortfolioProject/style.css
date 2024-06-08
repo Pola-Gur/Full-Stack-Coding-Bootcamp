@@ -12,6 +12,9 @@
 body {
     color: rgb(13, 7, 66);
 }
+.navbar-toggler {
+  margin-right: 5vh;
+}
 .text-gradient {
   background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
   -webkit-background-clip: text;
@@ -21,11 +24,18 @@ body {
     background: #1e30f3;
     background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
   }
-  .feature {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    width: 3rem;
-    font-size: 1.5rem;
+.feature {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+  font-size: 2.5rem;
+  margin-top: 2.5rem;
+  margin-right: auto;
+  margin-left: auto;
   }
+  .start-icon {
+    height: 5vh;
+  }
+  
