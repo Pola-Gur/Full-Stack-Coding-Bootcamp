@@ -19,6 +19,7 @@ our_fav_numbers = my_fav_numbers | friend_fav_numbers
 print("No")
     #I used the print function to highlight the answer among the text of the exercises
 
+
 # 🌟 Exercise 3: List
 # Instructions
 # Using this list basket = ["Banana", "Apples", "Oranges", "Blueberries"];
