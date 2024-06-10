@@ -182,13 +182,13 @@ another_main()
 # Bonus: Instead of asking for the season, ask the user for the number of the month (1 = January, 12 = December). Determine the season according to the month.
 
 another_season = input("\nEnter number of the month\n")  # how to make the last bonus (I don’t want to spoil the previous solution), just for clarity
-if  3<= another_season <= 5:
+if  3<= int(another_season) <= 5:
     print("It is spring!")  # or for previous code season = "spring"
-if  6<= another_season <= 8:
+if  6<= int(another_season) <= 8:
     print("It is summer!")
-if  9<= another_season <= 11:
+if  9<= int(another_season) <= 11:
     print("It is fall!")
-if  1<= another_season <= 2 or another_season == 1:
+if  1<= int(another_season) <= 2 or another_season == 1:
     print("It is winter!")
 
 
@@ -199,35 +199,58 @@ if  1<= another_season <= 2 or another_season == 1:
 
 # Here is an array of dictionaries, containing those questions and answers
 
-# data = [
-#     {
-#         "question": "What is Baby Yoda's real name?",
-#         "answer": "Grogu"
-#     },
-#     {
-#         "question": "Where did Obi-Wan take Luke after his birth?",
-#         "answer": "Tatooine"
-#     },
-#     {
-#         "question": "What year did the first Star Wars movie come out?",
-#         "answer": "1977"
-#     },
-#     {
-#         "question": "Who built C-3PO?",
-#         "answer": "Anakin Skywalker"
-#     },
-#     {
-#         "question": "Anakin Skywalker grew up to be who?",
-#         "answer": "Darth Vader"
-#     },
-#     {
-#         "question": "What species is Chewbacca?",
-#         "answer": "Wookiee"
-#     }
-# ]
+data = [
+    {
+        "question": "What is Baby Yoda's real name?",
+        "answer": "Grogu"
+    },
+    {
+        "question": "Where did Obi-Wan take Luke after his birth?",
+        "answer": "Tatooine"
+    },
+    {
+        "question": "What year did the first Star Wars movie come out?",
+        "answer": "1977"
+    },
+    {
+        "question": "Who built C-3PO?",
+        "answer": "Anakin Skywalker"
+    },
+    {
+        "question": "Anakin Skywalker grew up to be who?",
+        "answer": "Darth Vader"
+    },
+    {
+        "question": "What species is Chewbacca?",
+        "answer": "Wookiee"
+    }
+]
 
 
 # Create a function that asks the questions to the user, and check his answers. Track the number of correct, incorrect answers. Create a list of wrong_answers
 # Create a function that informs the user of his number of correct/incorrect answers.
 # Bonus : display to the user the questions he answered wrong, his answer, and the correct answer.
 # If he had more then 3 wrong answers, ask him to play again.
+
+
+correct = 0
+wrong_answers = []
+
+def star_wars_quiz(data):
+    for i in range(len(data)):
+        print(data[i]["question"])
+        user_answer = input()
+        if user_answer == data[i]["answer"]:
+            global correct
+            correct += 1
+        else:
+            wrong_answers.append({data[i]["question"]: ["your answer: "+user_answer, "correct answer: "+data[i]["answer"]]})
+
+star_wars_quiz(data)
+
+def results(correct):
+    print(f"\nYou have {correct} correct answers and {len(data)-correct} incorrecr answers")
+    print(*wrong_answers, sep="\n")
+
+
+results(correct)
