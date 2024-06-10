@@ -64,12 +64,15 @@ while i <= 5:
 # Using a for loop, that loops from 1 to 20(inclusive), print out every element which has an even index.
 
 ex5_list = [i for i in range(1, 21, 1)]
+print(ex5_list)
 # or
 ex5_another_list = []
 for i in range(1, 21):
     ex5_another_list.append(i)
     if i%2 == 0:
         print(ex5_another_list[i-2], end=' ')
+print()
+print(ex5_another_list)
 
 # 🌟 Exercise 6 : While Loop
 # Instructions
