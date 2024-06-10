@@ -10,7 +10,7 @@ else:
 print(var[0], var[-1])
 
 for i in range(len(var)):
-    print(var[:i])
+    print(var[:i+1])
 
 new_var = list(var)
 shuffle(new_var)
