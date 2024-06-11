@@ -33,12 +33,25 @@ def get_age(year: str, month: str, day):
     return years
 
 
+option = ["m", "f"]
+
+
 def can_retire(gender, years):
     return (gender == "m" and years >= 67) or (gender == "f" and years >= 62)
 
 
+def get_gender():
+    try:
+        gender = input("What is your gender (“m” or “f”?)\n")
+        if gender not in option:
+            raise Exception("Wrong gender")
+        return gender
+    except Exception as e:
+        print("Failer. ", e)
+        return get_gender()
 
-gender = input("What is your gender (“m” or “f”?)\n")
+
+gender = get_gender()
 date_of_birth = input("What is your date of birth? (format: “yyyy/mm/dd”, eg. “1993/09/21”)\n")
 user_birthday = date_of_birth.split("/")
 user_year, user_month, user_day = user_birthday
