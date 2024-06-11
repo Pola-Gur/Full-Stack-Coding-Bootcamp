@@ -37,6 +37,7 @@ def can_retire(gender, years):
     return (gender == "m" and years >= 67) or (gender == "f" and years >= 62)
 
 
+
 gender = input("What is your gender (“m” or “f”?)\n")
 date_of_birth = input("What is your date of birth? (format: “yyyy/mm/dd”, eg. “1993/09/21”)\n")
 user_birthday = date_of_birth.split("/")
@@ -50,6 +51,7 @@ else:
 
 
 
+
 # Exercise 2 : Sum
 # Instructions
 # Write a function that accepts one parameter (an int: X) and returns the value of X+XX+XXX+XXXX.
@@ -59,6 +61,12 @@ else:
 # Hint: treating our number as a int or a str at different points in our code may be helpful
 
 
+def number_sec(number):
+    result = number + "+" + number + number + "+" + number + number + number + "+" + number + number + number + number
+    return print(result)
+
+
+number_sec(str(input("Yor number\n")))
 
 # Exercise 3 : Double Dice
 # Instructions
