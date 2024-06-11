@@ -24,6 +24,9 @@ import re
 
 current_month = datetime.now().month
 current_year = datetime.now().year
+option = ["m", "f"]
+pattern = r'\d\d\d\d\/\d\d\/\d\d'
+dated_pattern = re.compile(pattern)
 
 
 def get_age(year: str, month: str, day):
@@ -32,9 +35,6 @@ def get_age(year: str, month: str, day):
     if months < 0:
         years -= 1
     return years
-
-
-option = ["m", "f"]
 
 
 def can_retire(gender, years):
@@ -52,11 +52,6 @@ def get_gender():
         return get_gender()
 
 
-gender = get_gender()
-pattern = r'\d\d\d\d\/\d\d\/\d\d'
-dated_pattern = re.compile(pattern)
-
-
 def get_date():
     try:
         date_of_birth = input("What is your date of birth? (format: “yyyy/mm/dd”, eg. “1993/09/21”)\n")
@@ -68,8 +63,9 @@ def get_date():
         print("Failer. ", e)
         return get_date()
 
-date_of_birth = get_date()
 
+gender = get_gender()
+date_of_birth = get_date()
 user_birthday = date_of_birth.split("/")
 user_year, user_month, user_day = user_birthday
 years = get_age(user_year, user_month, user_day)
@@ -78,7 +74,6 @@ if can_retire(gender, years):
     print("You can retire")
 else:
     print(f"You only {years} years old, you can't retire")
-
 
 
 
