@@ -91,3 +91,37 @@ number_sec(str(input("Yor number\n")))
 # Then my output would show something like this:
 # Total throws: 8
 # Average throws to reach doubles: 2.67.
+
+
+from random import randint
+
+
+def throw_dice():
+    num = randint(1, 6)
+    return num
+
+
+def throw_until_doubles():
+    num1 = throw_dice()
+    num2 = throw_dice()
+    attempt = 1
+    if num1 != num2:
+        num2 = throw_dice()
+        attempt += 1
+    return attempt
+
+
+collection = []
+
+
+def main():
+    for i in range (100):
+        collection.append(throw_until_doubles())       
+    return collection
+
+
+main()
+
+
+print("\nIt took in total to reach 100 doubles ", sum(collection))
+print("The average is ", round((sum(collection)/len(collection)),2))
