@@ -20,6 +20,7 @@
 # As always, test your code to ensure it works.
 
 from datetime import datetime
+import re
 
 current_month = datetime.now().month
 current_year = datetime.now().year
@@ -52,7 +53,23 @@ def get_gender():
 
 
 gender = get_gender()
-date_of_birth = input("What is your date of birth? (format: “yyyy/mm/dd”, eg. “1993/09/21”)\n")
+pattern = r'\d\d\d\d\/\d\d\/\d\d'
+dated_pattern = re.compile(pattern)
+
+
+def get_date():
+    try:
+        date_of_birth = input("What is your date of birth? (format: “yyyy/mm/dd”, eg. “1993/09/21”)\n")
+        if re.match(dated_pattern, date_of_birth):
+            return date_of_birth    
+        else:
+            raise Exception("Wrong date format")
+    except Exception as e:
+        print("Failer. ", e)
+        return get_date()
+
+date_of_birth = get_date()
+
 user_birthday = date_of_birth.split("/")
 user_year, user_month, user_day = user_birthday
 years = get_age(user_year, user_month, user_day)
