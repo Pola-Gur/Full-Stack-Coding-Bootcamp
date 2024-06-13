@@ -22,13 +22,15 @@
 print("Welcome to TIC TAC TOE!\n")
 
 print("TIC TAC TOE\n")
-field = [["*************"],
-         ["* 1 | 2 | 3 *"],
-         ["----|---|----"],
-         ["* 4 | 5 | 6 *"],
-         ["----|---|----"],
-         ["* 7 | 8 | 9 *"],
-         ["*************"]]
+field = ["*************",
+         "* 1 | 2 | 3 *",
+         "*---|---|---*",
+         "* 4 | 5 | 6 *",
+         "*---|---|---*",
+         "* 7 | 8 | 9 *",
+         "*************"]
+
+turn = 1
 
 
 def display_board():
@@ -36,15 +38,47 @@ def display_board():
         print(i, end="\n")
 
 
+# def change():
+#     for i in field:
+#         for j in field[i]:
+#             if j == n:
+#                 field[i].replace(n, player)
+
+player = "X"
+def check_win():
+    if field.count(player) < 3:
+        pass
+    else:
+        if field[2].count(player) == 3 or field[4].count(player) == 3 or field[6].count(player) == 3 or (field[1][2]== player and field[3][2]== player and field[5][2]== player) or (field[1][6]== player and field[3][6]== player and field[5][6]== player) or (field[1][10]== player and field[3][10]== player and field[5][10]== player) or (field[1][2]== player and field[3][6]== player and field[5][10]== player) or (field[5][2]== player and field[3][6]== player and field[1][10]== player):
+            print(f"Player {player} won!")
+            return False
 
 
-# def player_input(player):
+def player_input():
+    global turn
+    display_board()
+    if turn > 0:
+        player = "X"    
+    else:
+        player = "Y"
+    print(f"Player {player}'s turn..\n.")
+    num = ("Enter cell number\n")
+    num = input()
+    turn *= -1
+    for i in field:
+        for j in i:
+            print("i: ", i, "j: ", j, player, num)
+            if j == str(num):
+                j = player
+    
+    check_win()
 
 
-display_board()
+while check_win != False:
+    player_input()
 
 
-# def check_win():
 
 
-# def play():
+
+
