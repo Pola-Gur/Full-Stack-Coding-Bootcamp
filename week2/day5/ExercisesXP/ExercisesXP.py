@@ -19,11 +19,32 @@
 # After contemplating the question above, think about splitting your code into smaller pieces (functions).
 # Remember to follow the single responsibility principle! each function should do one thing and do it well!
 
+print("Welcome to TIC TAC TOE!\n")
+
+print("TIC TAC TOE\n")
 field = [["*************"],
-         ["*   |   |   *"],
-         ["-------------"],
-         ["*   |   |   *"],
-         ["-------------"],
-         ["*   |   |   *"],
+         ["* 1 | 2 | 3 *"],
+         ["----|---|----"],
+         ["* 4 | 5 | 6 *"],
+         ["----|---|----"],
+         ["* 7 | 8 | 9 *"],
          ["*************"]]
-print(field)
+
+
+def display_board():
+    for i in field:
+        print(i, end="\n")
+
+
+
+
+# def player_input(player):
+
+
+display_board()
+
+
+# def check_win():
+
+
+# def play():
