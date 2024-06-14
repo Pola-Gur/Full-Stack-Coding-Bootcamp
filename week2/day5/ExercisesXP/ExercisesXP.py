@@ -59,7 +59,10 @@ def player_input():
     print("Enter column (1, 2 or 3)\n")
     column = int(input())
 
+
 display_board()
+
+
 while check_win() != False:
     player_input()
     if row == 1:
@@ -85,8 +88,7 @@ while check_win() != False:
             field[5][5] = player
     display_board()
     check_win()
-
-
-
-
-
+    if player == "X":
+        player = "Y"
+    else:
+        player = "X"
