@@ -34,7 +34,7 @@ field = [["*************"],
 player = "X"
 row = 0
 column = 0
-
+won = 0
 
 def display_board():
     for i in field:
@@ -42,12 +42,11 @@ def display_board():
 
 
 def check_win():
-    if field.count(player) < 3:
-        pass
-    else:
-        if field[1].count(player) == 3 or field[3].count(player) == 3 or field[5].count(player) == 3 or (field[1][1]== player and field[3][1]== player and field[5][1]== player) or (field[1][5]== player and field[3][5]== player and field[5][5]== player) or (field[1][3]== player and field[3][3]== player and field[5][3]== player) or (field[1][1]== player and field[3][3]== player and field[5][5]== player) or (field[5][1]== player and field[3][3]== player and field[1][5]== player):
-            print(f"Player {player} won!")
-            return False
+    global won
+    if field[1].count(player) == 3 or field[3].count(player) == 3 or field[5].count(player) == 3 or (field[1][1]== player and field[3][1]== player and field[5][1]== player) or (field[1][5]== player and field[3][5]== player and field[5][5]== player) or (field[1][3]== player and field[3][3]== player and field[5][3]== player) or (field[1][1]== player and field[3][3]== player and field[5][5]== player) or (field[5][1]== player and field[3][3]== player and field[1][5]== player):
+        print(f"Player {player} won!")
+        won = 1
+        return won
 
 
 def player_input():
@@ -63,7 +62,7 @@ def player_input():
 display_board()
 
 
-while check_win() != False:
+while won == 0:
     player_input()
     if row == 1:
         if column == 1:
