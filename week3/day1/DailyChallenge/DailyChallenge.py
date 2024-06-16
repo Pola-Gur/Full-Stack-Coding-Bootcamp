@@ -53,9 +53,28 @@ class Farm():
         info += "\n\tE-I-E-I-0!"
         return info
 
+    def get_animal_types(self) -> list:
+        return sorted(self.animals.keys())
+
+    def get_short_info(self):
+        animal_types = self.get_animal_types()
+        short_info = ", ".join(
+            [f"{animal}s" if self.animals[animal] > 1 else animal for animal in animal_types])
+
+        return f"{self.name}'s farm has {short_info}."
+    
 macdonald = Farm("McDonald")
 macdonald.add_animal('cow',5)
 macdonald.add_animal('sheep')
 macdonald.add_animal('sheep')
 macdonald.add_animal('goat', 12)
 print(macdonald.get_info())
+print(macdonald.get_short_info())       
+
+
+        # "f"{self.name}’s farm has "
+        # for i in range(len(animal_types)):
+        #     if animal_types[i] == 1:
+        #         short_info += str(animal_types[i])
+        #     else:
+        #         short_info += f"{animal_types[i]}'s""
