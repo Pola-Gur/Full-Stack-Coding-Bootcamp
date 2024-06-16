@@ -48,6 +48,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+
 # 🌟 Exercise 2 : Dogs
 # Instructions
 # Create a class called Dog.
@@ -65,25 +66,44 @@ class Dog:
     def __init__(self, dog_name: str, dog_height: int | float):
         self.name = dog_name
         self.height = dog_height
-    def bark():
-        print(f"{dog_name} goes woof!") 
 
-    def jump():
-        x = height * 2
-        print(f"{dog_name} jumps {x} cm high!")
+    def bark(self):
+        print(f"{self.name} goes woof!") 
+
+    def jump(self):
+        x = self.height * 2
+        print(f"{self.name} jumps {x} cm high!")
 
 
 davids_dog = Dog("Rex", 50)
 
-print(f"David's dog is {davids_dog.dog_name} and it's heighgt {davids_dog.dog_height}")
+print(f"David's dog is {davids_dog.name} and it's heighgt {davids_dog.height}")
 
 davids_dog.bark()
 davids_dog.jump()
 
 sarahs_dog = Dog("Teacup", 20)
-print(f"David's dog is {davids_dog.dog_name} and it's heighgt {davids_dog.dog_height}")
+print(f"Sarah's dog is {sarahs_dog.name} and it's heighgt {sarahs_dog.height}")
+sarahs_dog.bark()
+sarahs_dog.jump()
 
 
+dogs = [davids_dog, sarahs_dog]
+def get_bigger_dog(dog_list: list[Dog]):
+
+    bigger_dog = dogs[0]
+    for dog in dog_list:
+        if dog.height > bigger_dog.height:
+            bigger_dog = dog
+    return bigger_dog
+
+def main():
+
+    bigger_dog = get_bigger_dog(dogs)
+    print(f"The biggest dog is {bigger_dog.name}, and it is {bigger_dog.height} cm.")
+
+if __name__ == "__main__":
+    main()
 
 # 🌟 Exercise 3 : Who’s The Song Producer?
 # Instructions
