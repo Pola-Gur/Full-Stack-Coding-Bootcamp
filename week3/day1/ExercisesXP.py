@@ -177,5 +177,40 @@ class Zoo():
         if animal_sold in self.animals:
             self.animals.remove(animal_sold)
 
-    def sort_animals():
-        
+    def sort_animals(self):
+        sorted_animals = sorted(self.animals)
+        grouped_animals = {}
+        for animal in sorted_animals:
+            first_letter = animal[0]
+            if first_letter not in grouped_animals:
+                grouped_animals[first_letter] = [animal]
+            else:
+                grouped_animals[first_letter].append(animal)
+
+        sorted_grouped_animals = {}
+        counter = 1
+        for key in sorted(grouped_animals.keys()):
+            sorted_grouped_animals[counter] = grouped_animals[key]
+            counter += 1
+
+        return sorted_grouped_animals
+    
+    def get_groups(self):
+        grouped_animals = self.sort_animals()
+        for group, animals in grouped_animals.items():
+            print(group, animals, sep=": ")
+
+ramat_gan_safari = Zoo("Ramat Gan Safari")
+
+ramat_gan_safari.add_animal("Girafe")
+ramat_gan_safari.add_animal("Lion")
+ramat_gan_safari.add_animal("Monkey")
+ramat_gan_safari.add_animal("Wolf")
+ramat_gan_safari.add_animal("Duck")
+ramat_gan_safari.add_animal("Chicken")
+ramat_gan_safari.add_animal("Horse")
+
+ramat_gan_safari.get_animals()
+ramat_gan_safari.sell_animal("Chicken")
+ramat_gan_safari.sort_animals()
+ramat_gan_safari.get_groups()
