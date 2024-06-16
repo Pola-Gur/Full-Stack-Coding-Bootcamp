@@ -121,6 +121,18 @@ if __name__ == "__main__":
 # all that glitters is gold
 # and she’s buying a stairway to heaven
 
+class Song():
+    def __init__(self, lyrics: list):
+        self.lyrics = lyrics
+    
+    def sing_me_a_song(self):
+        for string in self.lyrics:
+            print(string)
+
+strings = Song(["And you singing the song thinking this is the life", "And you wake up in the morning and your head feels twice the size", "Oh where you gonna go, where you gonna go, where you gonna sleep tonight?"])
+
+strings.sing_me_a_song()
+
 
 # Exercise 4 : Afternoon At The Zoo
 # Instructions
@@ -148,3 +160,22 @@ if __name__ == "__main__":
 # Example
 # Which animal should we add to the zoo --> Giraffe
 # x.add_animal(Giraffe)
+
+class Zoo():
+    def __init__(self, zoo_name):
+        self.name = zoo_name
+        self.animals = []
+    
+    def add_animal(self, new_animal):
+        if new_animal not in self.animals:
+            self.animals.append(new_animal)
+    
+    def get_animals(self):
+        print(self.animals)
+
+    def sell_animal(self, animal_sold: str):
+        if animal_sold in self.animals:
+            self.animals.remove(animal_sold)
+
+    def sort_animals():
+        
