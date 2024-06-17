@@ -58,8 +58,41 @@ sara_pets.walk()
 
 # Create 3 dogs and run them through your class.
 
+class Dog:
+    def __init__(self, name: str, age: int, weight: float):
+        self.name = name
+        self.age = age
+        self.weight = weight
+
+    def bark(self) -> str:
+        return f"{self.name} is barking"
+    
+    def run_speed(self) -> float:
+        return self.weight/self.age*10
+    
+    def get_strength(self) -> float:
+        return self.run_speed() * self.weight
+    
+    def fight(self, other_dog: "Dog") -> str:
+        if self.get_strength() >= other_dog.get_strength():
+            winner = self.name
+            looser = other_dog.name
+        else:
+            winner = other_dog.name
+            looser = self.name
+        return f"{winner} won the fight with {looser}"
 
 
+barker1 = Dog("Hot dog", 13, 7)
+barker2 = Dog("Puff", 5, 5)
+barker3 = Dog("monkey", 3, 6)
+
+barker1.bark()
+barker2.bark()
+barker3.bark()
+print(barker1.fight(barker2))
+print(barker1.fight(barker3))
+print(barker2.fight(barker3))
 
 # 🌟 Exercise 3 : Dogs Domesticated
 # Instructions
