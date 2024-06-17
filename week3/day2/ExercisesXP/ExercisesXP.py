@@ -110,27 +110,92 @@ print(barker2.fight(barker3))
 # “dog_name shakes your hand”.
 # “dog_name plays dead”.
 
+from random import choice
+
+
+class PetDog(Dog):
+    def __init__(self, name, age, weight, trained: bool = False):
+        super().__init__(name, age, weight)
+        self.trained = trained
+    
+    def train(self) -> None:
+        print(self.bark())
+        self.trained = True
+
+    def play(self: "PetDog", *dog_names: str) -> None:
+        dogs = ", ".join([dog_name for dog_name in dog_names])
+        return print(f"{dogs} all play together")
+
+    # def play(self, dog_names: "tuple[Dog, ...]") -> str:
+    #     print(f"{dog_names} all play together")
+
+    def do_a_trick(self) -> None:
+        tricks = [f"{self.name} does a barrel roll", f"{self.name} stands on his back legs", f"{self.name} shakes your hand", f"{self.name} plays dead"]
+        if self.trained:
+            return print(choice(tricks))
+            
+
+dog_names = [barker1, barker2, barker3]
+mega_barker = PetDog("Foo", 18, 35)
+mega_barker.play(barker1.name, barker2.name, barker3.name)
+mega_barker.do_a_trick()
 
 # Exercise 4 : Family
 # Instructions
 # Create a class called Family and implement the following attributes:
-
 # members: list of dictionaries
 # last_name : (string)
-
 # Implement the following methods:
-
 # born: adds a child to the members list (use **kwargs), don’t forget to print a message congratulating the family.
 # is_18: takes the name of a family member as a parameter and returns True if they are over 18 and False if not.
 # family_presentation: a method that prints the family’s last name and all the members’ details.
-
 # Create an instance of the Family class, with the last name of your choice, and the below members. Then call all the methods you created in Point 2.
-
 #     [
 #         {'name':'Michael','age':35,'gender':'Male','is_child':False},
 #         {'name':'Sarah','age':32,'gender':'Female','is_child':False}
 #     ]
 
+
+class Family:
+    def __init__(self, last_name: str, members: list[dict[str, str | int | bool]]):
+        self.members = members
+        self.last_name = last_name
+
+    def born(self, **child):
+        self.members.append(child)
+    
+    def is_18(self, name: str):
+        """
+        Returns True if there's person named 'name' over 18 y.o.
+        """
+        for i in range(len(self.members)):
+            if self.members[i]["name"] == name:
+                if self.members[i]["age"] >= 18:
+                    self.members[i]["is_child"] = False
+                    return True
+                else:
+                    self.members[i]["is_child"] = True
+            else:
+                continue
+
+
+    def family_presentation(self):
+        print(f"In {self.last_name} family:\n")
+        print(self.members)
+
+
+family1 = Family( "Petrov", [
+        {'name': 'Michael', 'age': 35, 'gender': 'Male', 'is_child': False},
+        {'name': 'Sarah', 'age': 32, 'gender': 'Female', 'is_child': False}
+    ])
+
+family1.born(name = "Nick", age=10)
+family1.is_18("Nick")
+
+
+family1.born(name = "Zoe", age = 21)
+family1.is_18("Zoe")
+family1.family_presentation()
 
 # Exercise 5 : TheIncredibles Family
 # Instructions
