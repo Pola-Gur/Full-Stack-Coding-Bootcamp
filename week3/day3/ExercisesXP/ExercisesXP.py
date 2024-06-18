@@ -106,6 +106,11 @@ print(add_numbers(3, 40))
 # Hint: use the string module
 
 
+from string import ascii_letters
+from random import choice
+
+
+print(''.join(choice(ascii_letters) for i in range(5)))
 
 # 🌟 Exercise 4 : Current Date
 # Instructions
