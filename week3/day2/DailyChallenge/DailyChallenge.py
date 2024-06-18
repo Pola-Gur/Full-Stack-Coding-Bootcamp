@@ -38,21 +38,38 @@ class Pagination:
     def __init__(self, items: list = None, pageSize: int = 10):
          self.items = items
          self.pageSize = pageSize
-         self.length = len(items)
+         self.totalPages = len(items)
+         self.currentPage = 1
 
-    def getVisibleItems(self) -> list:
-        return self.items[: self.pageSize]
+    def getVisibleItems(self, start: int = 0):
+        self.start = start
+        if 
+        print(self.items[start: start + self.pageSize])
     
-    def prevPage(self):
-         
+    # def prevPage(self):
+        
 
-    def nextPage(self):
+    # def nextPage(self):
+        
          
-         
-    def firstPage(self):
+    # def firstPage(self):
          
 
     def lastPage(self):
-        return self.items[-(self.length%self.pageSize):]
+        self.start = -(self.totalPages % self.pageSize)
+        self.currentPage = self.totalPages
+        return self.start, self.totalPages
     
-    def goToPage(pageNum):
+    def goToPage(self, pageNum):
+        self.pageNum = pageNum
+        if pageNum > self.totalPages:
+            pageNum = self.totalPages
+        if pageNum < 1:
+            pageNum = 1
+
+alphabetList = list("abcdefghijklmnopqrstuvwxyz")
+
+p = Pagination(alphabetList, 4)
+p.getVisibleItems() 
+p.lastPage()
+
