@@ -117,15 +117,24 @@ print(''.join(choice(ascii_letters) for i in range(5)))
 # Create a function that displays the current date.
 # Hint : Use the datetime module.
 
-from datetime import  date
+import datetime
 
-print(date.today())
+print(datetime .date.today())
 
 # Exercise 5 : Amount Of Time Left Until January 1st
 # Instructions
 # Create a function that displays the amount of time left from now until January 1st.
 # (Example: the 1st of January is in 10 days and 10:34:01hours).
 
+def time_until():
+    today = datetime.datetime.now()  # already imported module in previous exrcise
+    NY = datetime.datetime(2025,1,1)
+    delta = NY - today
+    days_until = delta.days
+    hours_until = (delta.total_seconds())/(60*60)
+    print(f"the 1st of January is in {days_until} days and {hours_until} hours.")
+
+time_until()
 
 # Exercise 6 : Birthday And Minutes
 # Instructions
