@@ -1,63 +1,5 @@
 # 🌟 Exercise 1: Currencies
 # Instructions
-class Currency:
-    def __init__(self, currency: str, amount: int):
-        self.currency = currency
-        self.amount = amount
-
-    def __str__(self) -> str:
-        if self.amount == 1:
-            return f"{self.amount} {self.currency}"
-        return f"{self.amount} {self.currency}s"
-
-    def __repr__(self) -> str:
-        return self.__str__()
-    
-    def __int__(self):
-        return self.amount
-    
-    def __add__(self, other_currency):
-        if isinstance(other_currency, Currency):
-            if self.currency != other_currency.currency:
-                raise TypeError(f"Cannot add between Currency type <{self.currency}> and <{other_currency.currency}>")
-            return Currency(self.currency, self.amount + other_currency.amount)
-        elif isinstance(other_currency, (int, float)):
-            return Currency(self.currency, self.amount + other_currency)
-        else:
-            raise TypeError(f"Unsupported addition between Currency and {type(other_currency).__name__}")
-        return self
-
-    def __iadd__(self, other_currency):
-        if isinstance(other_currency, Currency):
-            if self.currency != other_currency.currency:
-                raise TypeError(f"Cannot add between Currency type <{self.currency}> and <{other_currency.currency}>")
-            self.amount += other_currency.amount
-        elif isinstance(other_currency, (int, float)):
-            self.amount += other_currency
-        else:
-            raise TypeError(f"Unsupported addition between Currency and {type(other_currency).__name__}")
-        return self
-
-
-c1 = Currency('dollar', 5)
-c2 = Currency('dollar', 10)
-c3 = Currency('shekel', 1)
-c4 = Currency('shekel', 10)
-
-print(str(c1))
-print(int(c1))
-print(repr(c1))
-print(c1 + 5)
-print(c1 + c2)
-print(c1)
-c1 += 5
-print(c1)
-c1 += c2
-print(c1)
-print(c1 + c3)
-
-
-
 # Using the code above, implement the relevant methods and dunder methods which will output the results below.
 # Hint : When adding 2 currencies which don’t share the same label you should raise an error.
 
@@ -82,6 +24,63 @@ print(c1 + c3)
 # >>> c1 + c3
 # TypeError: Cannot add between Currency type <dollar> and <shekel>
 
+class Currency:
+    def __init__(self, currency: str, amount: int):
+        self.currency = currency
+        self.amount = amount
+
+    def __str__(self) -> str:
+        if self.amount == 1:
+            return f"{self.amount} {self.currency}"
+        return f"{self.amount} {self.currency}s"
+
+    def __repr__(self) -> str:
+        return self.__str__()
+    
+    def __int__(self):
+        return self.amount
+    
+    def __add__(self, other_currency):
+        # Check if other_currency is an instance of the Currency class
+        if isinstance(other_currency, Currency):
+            # If the currency types are different, raise a TypeError
+            if self.currency != other_currency.currency:
+                raise TypeError(f"Cannot add between Currency type <{self.currency}> and <{other_currency.currency}>")
+            # Return a new Currency object with the combined amount            
+            return Currency(self.currency, self.amount + other_currency.amount)
+        elif isinstance(other_currency, (int, float)):
+            return Currency(self.currency, self.amount + other_currency)
+        else:
+            raise TypeError(f"Unsupported addition between Currency and {type(other_currency).__name__}")
+
+    def __iadd__(self, other_currency):
+        if isinstance(other_currency, Currency):
+            if self.currency != other_currency.currency:
+                raise TypeError(f"Cannot add between Currency type <{self.currency}> and <{other_currency.currency}>")
+            # Add the amounts and update self.amount
+            self.amount += other_currency.amount
+        elif isinstance(other_currency, (int, float)):
+            self.amount += other_currency
+        else:
+            raise TypeError(f"Unsupported addition between Currency and {type(other_currency).__name__}")
+        return self
+
+c1 = Currency('dollar', 5)
+c2 = Currency('dollar', 10)
+c3 = Currency('shekel', 1)
+c4 = Currency('shekel', 10)
+
+print(str(c1))
+print(int(c1))
+print(repr(c1))
+print(c1 + 5)
+print(c1 + c2)
+print(c1)
+c1 += 5
+print(c1)
+c1 += c2
+print(c1)
+# print(c1 + c3)
 
 # 🌟 Exercise 2: Import
 # Instructions
@@ -96,11 +95,16 @@ print(c1 + c3)
 # OR
 # import module_name as mn
 
+from func import add_numbers
+
+print(add_numbers(3, 40))
+
 # 🌟 Exercise 3: String Module
 # Instructions
 # Generate random String of length 5
 # Note: String must be the combination of the UPPER case and lower case letters only. No numbers and a special symbol.
 # Hint: use the string module
+
 
 
 # 🌟 Exercise 4 : Current Date
