@@ -117,6 +117,9 @@ print(''.join(choice(ascii_letters) for i in range(5)))
 # Create a function that displays the current date.
 # Hint : Use the datetime module.
 
+from datetime import  date
+
+print(date.today())
 
 # Exercise 5 : Amount Of Time Left Until January 1st
 # Instructions
