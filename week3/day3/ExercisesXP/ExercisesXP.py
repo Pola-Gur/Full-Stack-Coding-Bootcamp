@@ -138,11 +138,42 @@ time_until()
 
 # Exercise 6 : Birthday And Minutes
 # Instructions
-# Create a function that accepts a birthdate as an argument (in the format of your choice), then displays a message stating how many minutes the user lived in his life.
+# Create a function that accepts a birthdate as an argument (in the format of your choice),
+# then displays a message stating how many minutes the user lived in his life.
 
+def days_life(bday_str: str):
+    date_format = '%Y/%m/%d %H:%M:%S'
+    date = datetime.datetime.strptime(bday_str, date_format)
+    now = datetime.datetime.now()
+    difference = now - date
+    difference_in_minutes = difference.total_seconds() / 60
+    print(f"You live {difference_in_minutes} minutes")
+days_life(input("Enter your birthday like this YYYY/MM/DD hh/mm/ss\n"))
 
 # Exercise 7 : Faker Module
 # Instructions
-# Install the faker module, and take a look at the documentation and learn how to properly implement faker in your code.
+# Install the faker module, and take a look at the documentation
+# and learn how to properly implement faker in your code.
 # Create an empty list called users. Tip: It should be a list of dictionaries.
-# Create a function that adds new dictionaries to the users list. Each user has the following keys: name, adress, langage_code. Use faker to populate them with fake data.
+# Create a function that adds new dictionaries to the users list.
+# Each user has the following keys: name, adress, langage_code. 
+# Use faker to populate them with fake data.
+
+from faker import Faker
+
+fake = Faker()
+
+users = []
+def new_user():
+    user = {
+    "name" : fake.name(),
+    "adress" : fake.street_address(),
+    "language_code" : fake.language_code()
+    }
+    users.append(user)
+
+for i in range(int(input("Enter number of fake users\n"))):
+    new_user()
+
+print(*users, sep="\n")
+
