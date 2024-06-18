@@ -80,7 +80,10 @@ c1 += 5
 print(c1)
 c1 += c2
 print(c1)
-# print(c1 + c3)
+# print(c1 + c3)  # this line is commented only to make checking easier
+
+
+
 
 # 🌟 Exercise 2: Import
 # Instructions
