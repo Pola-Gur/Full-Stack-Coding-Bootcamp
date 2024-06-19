@@ -8,6 +8,10 @@
 # a method that returns the most common word in the text.
 # a method that returns a list of all the unique words in the text.
 
+class Text:
+    def __init__(self, text: str):
+        self.text = text
+        
 
 # Part II
 # Then, we will analyze a text coming from an external text file. Download the_stranger.txt file.
