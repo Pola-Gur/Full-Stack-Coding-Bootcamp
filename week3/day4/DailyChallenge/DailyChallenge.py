@@ -8,10 +8,32 @@
 # a method that returns the most common word in the text.
 # a method that returns a list of all the unique words in the text.
 
+from collections import Counter 
+
+
 class Text:
-    def __init__(self, text: str):
-        self.text = text
-        
+    def __init__(self, text_string: str):
+        self.text_string = text_string
+        self.list_string = self.text_string.split()
+        self.word_count = Counter(self.list_string)
+
+    def frequency(self, word: str) -> int:
+        return self.word_count.get(word, 0)
+    
+    def most_common_word(self) -> str:
+        if not self.word_count:
+            return None
+        return self.word_count.most_common(1)[0][0]
+
+    def unique_words(self) -> list:
+        return [word for word, count in self.word_count.items() if count == 1]
+
+string_example = Text("A good book would sometimes cost as much as a good house.")
+print(f"Frequency of 'as': {string_example.frequency('as')}")
+print(f"Frequency of 'good': {string_example.frequency('good')}")
+print(f"Most common word in text {string_example.most_common_word()}")
+print(f"Unique words: {string_example.unique_words()}")
+
 
 # Part II
 # Then, we will analyze a text coming from an external text file. Download the_stranger.txt file.
