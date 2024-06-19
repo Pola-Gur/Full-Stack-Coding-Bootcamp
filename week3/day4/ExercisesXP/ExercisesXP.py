@@ -48,18 +48,35 @@ if __name__ == "__main__":
 
 # 🌟 Exercise 2: Working With JSON
 # Instructions
-# import json
-# sampleJson = """{ 
-#    "company":{ 
-#       "employee":{ 
-#          "name":"emma",
-#          "payable":{ 
-#             "salary":7000,
-#             "bonus":800
-#          }
-#       }
-#    }
-# }"""
+
+import json
+
+sampleJson = """{ 
+   "company":{ 
+      "employee":{ 
+         "name":"emma",
+         "payable":{ 
+            "salary":7000,
+            "bonus":800
+         }
+      }
+   }
+}"""
+
+json_object = json.loads(sampleJson)
+print(json_object)
+
+
 # Access the nested “salary” key from the JSON-string above.
 # Add a key called “birth_date” to the JSON-string at the same level as the “name” key.
 # Save the dictionary as JSON to a file.
+
+print(json_object["company"]["employee"]["payable"]["salary"])
+
+json_object["company"]["employee"]["birthday"] = "01/02/2003"
+
+new_json_file_location = "ExercisesXP/new_data.json"
+
+
+with open(new_json_file_location, mode="w") as file:
+    json.dump(json_object, file)
