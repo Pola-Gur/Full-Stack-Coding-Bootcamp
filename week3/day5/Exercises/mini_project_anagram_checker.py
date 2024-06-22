@@ -28,8 +28,6 @@
 # Anagrams for your word: mate, tame, team.
 
 
-
-
 class AnagramChecker:
     def __init__(self):
         file_location = "Exercises/text_with_list.txt"
@@ -46,6 +44,11 @@ class AnagramChecker:
             if set(self.word) == set(element)  and self.word != element:
                 self.anagrams.append(element)
         return self.anagrams
-test = AnagramChecker()
-print(test.is_valid_word("DIVA"))
-print(test.get_anagrams())
+
+if __name__ == "__main__":
+    def main():
+        test = AnagramChecker()
+        print(test.is_valid_word("DIVA"))
+        print(test.get_anagrams())
+
+    main()
