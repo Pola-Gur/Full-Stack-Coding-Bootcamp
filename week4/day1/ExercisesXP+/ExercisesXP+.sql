@@ -1,0 +1,1 @@
+select first_name, last_name from students where birth_date >= '2000-01-01';
