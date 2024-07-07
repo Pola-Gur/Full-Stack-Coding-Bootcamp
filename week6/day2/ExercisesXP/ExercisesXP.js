@@ -112,8 +112,20 @@ console.log(building.nameOfTenants[1] + ', ' + building.numberOfRoomsAndRent.dan
 // 🌟 Exercise 5 : Family
 // Instructions
 // Create an object called family with a few key value pairs.
+
+const family = {
+    mom: "Lily",
+    dad: "James",
+    son: "Harry"
+}
 // Using a for in loop, console.log the keys of the object.
+for (let member in family) {
+    console.log(member)
+}
 // Using a for in loop, console.log the values of the object.
+for (let member in family) {
+    console.log(family[member])
+}
 
 
 // Exercise 6 : Rudolf
