@@ -144,7 +144,14 @@ for (let detail in details) {
 
 // Exercise 7 : Secret Group
 // Instructions
-// const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
+const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
 // A group of friends have decided to start a secret society. The society’s name will be the first letter of each of their names sorted in alphabetical order.
 // Hint: a string is an array of letters
+names.sort()
+society = []
+for (let name in names) {
+    society.push(names[name][0])
+}
+society_name = society.toString()
+console.log(society_name.split(',').join(''))
 // Console.log the name of their secret society. The output should be “ABJKPS”
