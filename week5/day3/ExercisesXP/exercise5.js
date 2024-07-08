@@ -7,75 +7,52 @@
 // Using Javascript:
 // Retrieve the div and console.log it
 
-const divNode1 = document.querySelector('div');
-console.log('Div Node:', divNode1);
+document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve the div and console.log it
+    const containerDiv = document.getElementById('container');
+    console.log(containerDiv);
 
 // Change the name “Pete” to “Richard”.
+const peteElement = document.querySelector('ul.list:first-child li:nth-child(2)');
+  peteElement.textContent = 'Richard';
 // Delete the second <li> of the second <ul>.
+const secondUl = document.querySelector('ul.list:nth-child(2)');
+const secondLi = secondUl.querySelector('li:nth-child(2)');
+secondLi.remove();
+
 // Change the name of the first <li> of each <ul> to your name. (Hint : use a loop)
+
+const ulLists = document.querySelectorAll('ul.list');
+ulLists.forEach(function(ul) {
+  const firstLi = ul.querySelector('li:first-child');
+  firstLi.textContent = 'Pola'; 
+});
 
 // Using Javascript:
 // Add a class called student_list to both of the <ul>'s.
+ulLists.forEach(function(ul) {
+    ul.classList.add('student_list');
+  });
 // Add the classes university and attendance to the first <ul>.
+const firstUl = document.querySelector('ul.list:first-child');
+firstUl.classList.add('university', 'attendance');
 
 // Using Javascript:
 // Add a “light blue” background color and some padding to the <div>.
+containerDiv.style.backgroundColor = 'lightblue';
+containerDiv.style.padding = '10px';
 // Do not display the <li> that contains the text node “Dan”. (the last <li> of the first <ul>)
+const danLi = document.querySelector('ul.list:first-child li:last-child');
+danLi.style.display = 'none';
 // Add a border to the <li> that contains the text node “Richard”. (the second <li> of the <ul>)
+peteElement.style.border = '1px solid black';
 // Change the font size of the whole body.
+document.body.style.fontSize = '16px'; // Adjust to desired font size
 
 // Bonus: If the background color of the div is “light blue”, alert “Hello x and y” (x and y are the users in the div).
 
-
-// 🌟 Exercise 6 : Change The Navbar
-// Instructions
-// Create a new structured HTML file and a new Javascript file
-
-// <div id="navBar">
-//     <ul>
-//         <li><a href="#">Profile</a></li>
-//         <li><a href="#">Home</a></li>
-//         <li><a href="#">My Friends</a></li>
-//         <li><a href="#">Messenger</a></li>
-//         <li><a href="#">My Pics</a></li>
-//     </ul>
-// </div>
-
-
-// Add the code above, to your HTML file
-
-// Using Javascript, in the <div>, change the value of the id attribute from navBar to socialNetworkNavigation, using the setAttribute method.
-
-// We are going to add a new <li> to the <ul>.
-// First, create a new <li> tag (use the createElement method).
-// Create a new text node with “Logout” as its specified text.
-// Append the text node to the newly created list node (<li>).
-// Finally, append this updated list node to the unordered list (<ul>), using the appendChild method.
-
-// Use the firstElementChild and the lastElementChild properties to retrieve the first and last <li> elements from their parent element (<ul>). Display the text of each link. (Hint: use the textContent property).
-
-
-// Exercise 7 : My Book List
-// Instructions
-// Take a look at this link for help.
-
-// The point of this challenge is to display a list of two books on your browser.
-
-// In the body of the HTML page, create an empty section:
-// <section class="listBooks"></section>
-
-// In the js file, create an array called allBooks. This is an array of objects. Each object is a book that has 4 keys (ie. 4 properties) :
-// title,
-// author,
-// image : a url,
-// alreadyRead : which is a boolean (true or false).
-
-// Initiate the array with 2 books of your choice (ie. Add manually 2 books objects in the array)
-
-// Requirements : All the instructions below need to be coded in the js file:
-// Using the DOM, render each book inside a div (the div must be added to the <section> created in part 1).
-// For each book :
-// You have to display the book’s title and the book’s author.
-// Example: HarryPotter written by JKRolling.
-// The width of the image has to be set to 100px.
-// If the book is already read. Set the color of the book’s details to red.
+if (containerDiv.style.backgroundColor === 'lightblue') {
+    const users = Array.from(document.querySelectorAll('ul.list li')).map(li => li.textContent);
+    alert(`Hello ${users.join(' and ')}`);
+  }
+});
