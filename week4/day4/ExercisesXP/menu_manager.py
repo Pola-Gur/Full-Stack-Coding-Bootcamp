@@ -3,6 +3,13 @@
 
 # Create a Class Method called all_items which will return a list of all the items from the Menu_Items table.
 
+class MenuManager:
+    def get_by_name():
+        ...
+
+    def all_items():
+        ...
+
 # Codebox:
 
 # item = MenuItem('Burger', 35)
