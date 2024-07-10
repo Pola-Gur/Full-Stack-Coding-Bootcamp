@@ -58,6 +58,7 @@ print(letters)
 # wallet = "$1" 
 # ➞ "Nothing"
 
+
 items_purchase = {
   "Apple": "$4",
   "Honey": "$3",
@@ -72,6 +73,8 @@ wallet = int(wallet)
 acceptable = []
 for item in items_purchase:
     items_purchase[item] = items_purchase[item].replace("$", '')
+    # update fro previous string:
+    items_purchase[item] = items_purchase[item].replace(",", '')
     if int(items_purchase[item]) <= wallet:
         acceptable.append(item)  # if we're talking about hypothetical opportunity to buy
 if acceptable:
