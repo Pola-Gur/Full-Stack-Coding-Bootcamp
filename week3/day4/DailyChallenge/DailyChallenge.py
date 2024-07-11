@@ -35,6 +35,10 @@ print(f"Most common word in text {string_example.most_common_word()}")
 print(f"Unique words: {string_example.unique_words()}")
 
 
+# In Anagram Checker, your get_anagrams function it is not correct to use set. Since set delete all the repeated letters in the words and in result you will get, like, meat = TEAMMATE since TEAMMATE after set will be team. So you need to compare the word with:
+# 1. words with the same length
+# 2. words with the same letters in this length: sorted(word) is equial
+
 # Part II
 # Then, we will analyze a text coming from an external text file. Download the_stranger.txt file.
 # Implement a classmethod that returns a Text instance but with a text file:
