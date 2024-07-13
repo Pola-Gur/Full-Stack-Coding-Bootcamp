@@ -96,18 +96,18 @@
 // Instructions
 // Using the code below:
 
-function winBattle(){
-    return true;
-}
+// function winBattle(){
+//     return true;
+// }
 
 // Transform the winBattle() function to an arrow function.
 // Create a variable called experiencePoints.
 // Assign to this variable, a ternary operator. If winBattle() is true, the experiencePoints variable should be equal to 10, else the variable should be equal to 1.
 // Console.log the experiencePoints variable.
 
-let experiencePoints = winBattle() ? 10 : 1;
+// let experiencePoints = winBattle() ? 10 : 1;
 
-console.log(experiencePoints)
+// console.log(experiencePoints)
 
 // 🌟 Exercise 3 : Is It A String ?
 // Instructions
@@ -120,22 +120,22 @@ console.log(experiencePoints)
 // console.log(isString([1, 2, 4, 0]));
 //false
 
-function isString(smth) {
-    if (typeof(smth) == "string") {
-        return true
-    } else {
-        return false
-    }
-}
+// function isString(smth) {
+//     if (typeof(smth) == "string") {
+//         return true
+//     } else {
+//         return false
+//     }
+// }
 
-console.log(isString('hello')); 
-console.log(isString([1, 2, 4, 0]));
+// console.log(isString('hello')); 
+// console.log(isString([1, 2, 4, 0]));
 
 // 🌟 Exercise 4 : Find The Sum
 // Instructions
 // Create a one line function (ie. an arrow function) that receives two numbers as parameters and returns the sum.
 
-let funcSum = (a, b) => a+b;
+// let funcSum = (a, b) => a+b;
 // console.log(funcSum(3, 7)) Just test
 
 // 🌟 Exercise 5 : Kg And Grams
@@ -143,33 +143,39 @@ let funcSum = (a, b) => a+b;
 // Create a function that receives a weight in kilograms and returns it in grams. (Hint: 1 kg is 1000gr)
 // First, use function declaration and invoke it.
 
-function funcKGtoGR(weightKG) {
-    return weightKG * 1000
-}
+// function funcKGtoGR(weightKG) {
+//     return weightKG * 1000
+// }
 
-funcKGtoGR(7)
+// funcKGtoGR(7)
 
 // Then, use function expression and invoke it.
 
-const funcKGtoGR_expr(b) {
-    return b * 1000
-}
+// const funcKGtoGR_expr = function(b) {
+//     return b * 1000
+// }
 
-funcKGtoGR_expr(8)
+// funcKGtoGR_expr(8)
 
 // Write in a one line comment, the difference between function declaration and function expression.
 
-Function declarations are hoisted, while function expressions are not.
+// Function declarations are hoisted, while function expressions are not.
 
 // Finally, use a one line arrow function and invoke it.
 
-let funcKGtoGR_array = a => a * 1000
+// let funcKGtoGR_array = a => a * 1000
 
 // 🌟 Exercise 6 : Fortune Teller
 // Instructions
 // Create a self invoking function that takes 4 arguments: number of children, partner’s name, geographic location, job title.
 // The function should display in the DOM a sentence like "You will be a <job title> in <geographic location>, and married to <partner's name> with <number of children> kids."
 
+(function Sentence(children, partners, location, job) {
+    const sentence = `You will be a ${job} in ${location}, and married to ${partners} with ${children} kids.`;
+    const line = document.createElement('p');
+    line.textContent = sentence;
+    document.body.appendChild(line);
+})(1, "John", "NY", "manager")
 
 // 🌟 Exercise 7 : Welcome
 // Instructions
