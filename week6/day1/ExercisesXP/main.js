@@ -120,9 +120,16 @@ console.log(experiencePoints)
 // console.log(isString([1, 2, 4, 0]));
 //false
 
-let isString() {
-    
+function isString(smth) {
+    if (typeof(smth) == "string") {
+        return true
+    } else {
+        return false
+    }
 }
+
+console.log(isString('hello')); 
+console.log(isString([1, 2, 4, 0]));
 
 // 🌟 Exercise 4 : Find The Sum
 // Instructions
