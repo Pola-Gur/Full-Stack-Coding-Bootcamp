@@ -141,12 +141,29 @@ let funcSum = (a, b) => a+b;
 // 🌟 Exercise 5 : Kg And Grams
 // Instructions
 // Create a function that receives a weight in kilograms and returns it in grams. (Hint: 1 kg is 1000gr)
-
 // First, use function declaration and invoke it.
+
+function funcKGtoGR(weightKG) {
+    return weightKG * 1000
+}
+
+funcKGtoGR(7)
+
 // Then, use function expression and invoke it.
+
+const funcKGtoGR_expr(b) {
+    return b * 1000
+}
+
+funcKGtoGR_expr(8)
+
 // Write in a one line comment, the difference between function declaration and function expression.
+
+Function declarations are hoisted, while function expressions are not.
+
 // Finally, use a one line arrow function and invoke it.
 
+let funcKGtoGR_array = a => a * 1000
 
 // 🌟 Exercise 6 : Fortune Teller
 // Instructions
