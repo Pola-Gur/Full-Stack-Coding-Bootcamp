@@ -135,6 +135,8 @@ console.log(isString([1, 2, 4, 0]));
 // Instructions
 // Create a one line function (ie. an arrow function) that receives two numbers as parameters and returns the sum.
 
+let funcSum = (a, b) => a+b;
+// console.log(funcSum(3, 7)) Just test
 
 // 🌟 Exercise 5 : Kg And Grams
 // Instructions
