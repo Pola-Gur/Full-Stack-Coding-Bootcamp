@@ -185,21 +185,21 @@
 // In your js file, create a self invoking funtion that takes 1 argument: the name of the user that just signed in.
 // The function should add a div in the nabvar, displaying the name of the user and his profile picture.
 
-(function Welcome(name, photo_link) {
-    const greeting = `Welcome, ${name}`;
-    const div_line = document.createElement('div');
+// (function Welcome(name, photo_link) {
+//     const greeting = `Welcome, ${name}`;
+//     const div_line = document.createElement('div');
 
-    const profilePhoto = document.createElement('img');
-    profilePhoto.src = photo_link;
-    profilePhoto.style.width = '100px'; 
-    profilePhoto.style.height = '100px'; 
+//     const profilePhoto = document.createElement('img');
+//     profilePhoto.src = photo_link;
+//     profilePhoto.style.width = '100px'; 
+//     profilePhoto.style.height = '100px'; 
 
-    div_line.appendChild(profilePhoto);
+//     div_line.appendChild(profilePhoto);
 
-    div_line.appendChild(document.createTextNode(' ' + greeting));
+//     div_line.appendChild(document.createTextNode(' ' + greeting));
 
-    document.getElementById("navbar").appendChild(div_line);
-})("Bruce","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Sri_Lankan_Slender_Loris_1.jpg/266px-Sri_Lankan_Slender_Loris_1.jpg" );
+//     document.getElementById("navbar").appendChild(div_line);
+// })("Bruce","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Sri_Lankan_Slender_Loris_1.jpg/266px-Sri_Lankan_Slender_Loris_1.jpg" );
 
 // 🌟 Exercise 8 : Juice Bar
 // Instructions
@@ -214,16 +214,26 @@
 
 
 function makeJuice(size) {
+    let ingredients = [];
+
     function addIngredients(first_ing, second_ing, third_ing) {
-        const sentence = `The client wants a ${size} juice, containing ${first_ing}, ${second_ing}, ${third_ing}.`
-        ingredients = [];
+        ingredients.push(first_ing, second_ing, third_ing);
     }
     function displayJuice() {
-
+        const ingredientList = ingredients.join(', ');
+        const sentence = `The client wants a ${size} juice, containing ${ingredientList}.`
+        
+        const juiceOrder = document.body;
+        const orderLine = document.createElement('p');
+        orderLine.textContent = sentence;
+        juiceOrder.appendChild(orderLine);
     }
-    addIngredients("apple", 'grenadin', 'orange')
+    addIngredients("apple", 'grenadin', 'orange');
+    addIngredients('grape', 'kiwi', 'mango');
+
+    displayJuice();
 }
-makeJuice('s')
+makeJuice('small')
 
 // Part II:
 // In the makeJuice function, create an empty array named ingredients.
