@@ -213,6 +213,18 @@
 // Invoke the inner function ONCE inside the outer function. Then invoke the outer function in the global scope.
 
 
+function makeJuice(size) {
+    function addIngredients(first_ing, second_ing, third_ing) {
+        const sentence = `The client wants a ${size} juice, containing ${first_ing}, ${second_ing}, ${third_ing}.`
+        ingredients = [];
+    }
+    function displayJuice() {
+
+    }
+    addIngredients("apple", 'grenadin', 'orange')
+}
+makeJuice('s')
+
 // Part II:
 // In the makeJuice function, create an empty array named ingredients.
 
