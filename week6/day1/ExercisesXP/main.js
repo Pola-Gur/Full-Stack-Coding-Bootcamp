@@ -170,12 +170,12 @@
 // Create a self invoking function that takes 4 arguments: number of children, partner’s name, geographic location, job title.
 // The function should display in the DOM a sentence like "You will be a <job title> in <geographic location>, and married to <partner's name> with <number of children> kids."
 
-(function Sentence(children, partners, location, job) {
-    const sentence = `You will be a ${job} in ${location}, and married to ${partners} with ${children} kids.`;
-    const line = document.createElement('p');
-    line.textContent = sentence;
-    document.body.appendChild(line);
-})(1, "John", "NY", "manager")
+// (function Sentence(children, partners, location, job) {
+//     const sentence = `You will be a ${job} in ${location}, and married to ${partners} with ${children} kids.`;
+//     const line = document.createElement('p');
+//     line.textContent = sentence;
+//     document.body.appendChild(line);
+// })(1, "John", "NY", "manager")
 
 // 🌟 Exercise 7 : Welcome
 // Instructions
@@ -185,6 +185,21 @@
 // In your js file, create a self invoking funtion that takes 1 argument: the name of the user that just signed in.
 // The function should add a div in the nabvar, displaying the name of the user and his profile picture.
 
+(function Welcome(name, photo_link) {
+    const greeting = `Welcome, ${name}`;
+    const div_line = document.createElement('div');
+
+    const profilePhoto = document.createElement('img');
+    profilePhoto.src = photo_link;
+    profilePhoto.style.width = '100px'; 
+    profilePhoto.style.height = '100px'; 
+
+    div_line.appendChild(profilePhoto);
+
+    div_line.appendChild(document.createTextNode(' ' + greeting));
+
+    document.getElementById("navbar").appendChild(div_line);
+})("Bruce","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Sri_Lankan_Slender_Loris_1.jpg/266px-Sri_Lankan_Slender_Loris_1.jpg" );
 
 // 🌟 Exercise 8 : Juice Bar
 // Instructions
