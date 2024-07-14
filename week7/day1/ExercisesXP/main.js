@@ -32,6 +32,16 @@ compareToTen(8)
 // Instructions
 // Create a promise that resolves itself in 4 seconds and returns a “success” string.
 
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Successfully!");
+    }, 4000);
+});
+
+// for check:
+// promise
+//     .then(result => console.log(result))
+//     .catch(error => console.log(error));
 
 // 🌟 Exercise 3 : Resolve & Reject
 // Instructions
