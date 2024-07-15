@@ -7,54 +7,59 @@
 // If the array length is bigger than 4, resolve the promise. The value of the resolved promise is the array of words sorted in alphabetical order.
 // else, reject the promise with a reason.
 
-function makeAllCaps(array) {
-    return new Promise((resolve, reject) => {
-    let uppercase_array = [];
-    array.forEach(element => {
-        if (typeof element === "string") {
-            uppercase_array.push(element.toUpperCase());
-        } else {
-            reject("Array contains non-string elements");
-            return;
-            }
-        });
-        resolve(uppercase_array);
-    });
-};
+// function makeAllCaps(array) {
+//     return new Promise((resolve, reject) => {
+//     let uppercase_array = [];
+//     array.forEach(element => {
+//         if (typeof element === "string") {
+//             uppercase_array.push(element.toUpperCase());
+//         } else {
+//             reject("Array contains non-string elements");
+//             return;
+//             }
+//         });
+//         resolve(uppercase_array);
+//     });
+// };
 
 
-function sortWords(uppercase_array) {
-    return new Promise((resolve, reject) => {
-        if (uppercase_array.length > 4) {
-            const array_sorted = uppercase_array.sort();
-            resolve(array_sorted);
-        } else {
-            reject("Array shorter than needs");
-        }
- });
-}
+// function sortWords(uppercase_array) {
+//     return new Promise((resolve, reject) => {
+//         if (uppercase_array.length > 4) {
+//             const array_sorted = uppercase_array.sort();
+//             resolve(array_sorted);
+//         } else {
+//             reject("Array shorter than needs");
+//         }
+//  });
+// }
 
 
 // Test:
 
-// in this example, the catch method is executed
-makeAllCaps([1, "pear", "banana"])
-      .then((arr) => sortWords(arr))
-      .then((result) => console.log(result))
-      .catch(error => console.log(error))
+// // in this example, the catch method is executed
+// makeAllCaps([1, "pear", "banana"])
+//       .then((arr) => sortWords(arr))
+//       .then((result) => console.log(result))
+//       .catch(error => console.log(error))
 
-// in this example, the catch method is executed
-makeAllCaps(["apple", "pear", "banana"])
-      .then((arr) => sortWords(arr))
-      .then((result) => console.log(result))
-      .catch(error => console.log(error))
+// // in this example, the catch method is executed
+// makeAllCaps(["apple", "pear", "banana"])
+//       .then((arr) => sortWords(arr))
+//       .then((result) => console.log(result))
+//       .catch(error => console.log(error))
 
-// in this example, you should see in the console, 
-// the array of words uppercased and sorted
-makeAllCaps(["apple", "pear", "banana", "melon", "kiwi"])
-      .then((arr) => sortWords(arr))
-      .then((result) => console.log(result)) //["APPLE","BANANA", "KIWI", "MELON", "PEAR"]
-      .catch(error => console.log(error))
+// // in this example, you should see in the console, 
+// // the array of words uppercased and sorted
+// makeAllCaps(["apple", "pear", "banana", "melon", "kiwi"])
+//       .then((arr) => sortWords(arr))
+//       .then((result) => console.log(result)) //["APPLE","BANANA", "KIWI", "MELON", "PEAR"]
+//       .catch(error => console.log(error))
+
+
+
+
+
 
 
 
@@ -116,12 +121,12 @@ const morse = `{
 // else return the morse javascript object (use resolve)
 
 function toJS(morse) {
-    return new Promise((resolve, reject) {
-        if (morse) {
-            const morseJS = JSON.parse(morse);
-            resolve(morse);
+    return new Promise((resolve, reject) => {
+        const morseJS = JSON.parse(morse);
+        if (Object.keys(morseJS).length === 0) {
+            reject("Empty given element");
         } else {
-            return reject("Empty given element")
+            resolve(morseJS);
         }
     });
 }
@@ -134,19 +139,20 @@ function toJS(morse) {
 
 
 function toMorse(morseJS) {
-    const user_input = promt("Enter a word or a sentence");
-    let translation = [];
-    return new Promise((resolve, reject) {
-        morseJS.forEach(element => {
-            if (morseJS.includes(element)) {
-                translation.push(morseJS[element]);
+    const user_input = prompt("Enter a word or a sentence").toLowerCase();
+    return new Promise((resolve, reject) => {
+        let translation = [];
+        for (let char of user_input) {
+            if (morseJS[char]) {
+                translation.push(morseJS[char]);
             } else {
-                return reject("The string contains invalid characters")
+                reject("The string contains invalid characters");
+                return;
             }
-            resolve(morseJS)
-    });
-    });
-};    
+         }
+         resolve(translation);
+    });  
+};  
 
 
 // The third function called joinWords(morseTranslation), takes one argument: the morse translation array
@@ -154,9 +160,19 @@ function toMorse(morseJS) {
 // this function joins the morse translation by using line break and display it on the page (ie. On the DOM)
 
 function joinWords(translation) {
-    console.log(translation.join("-"));
-    
+    const join_string = translation.join("\n");
+    const representation = document.createElement("p")
+    representation.textContent = join_string;
+    document.body.appendChild(representation);
+    console.log(representation.innerHTML);
 }
+
+
+toJS(morse)
+    .then(morseJS => toMorse(morseJS))
+    .then(translation => joinWords(translation))
+    .catch(error => console.log(error));
+
 
 // Chain the three functions.
 // Example:
