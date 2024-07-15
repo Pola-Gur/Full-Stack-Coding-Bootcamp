@@ -10,3 +10,39 @@
 // Bonus: Do the same process to create the moons.
 // Be careful, each planet has a certain amount of moons. How should you display them?
 // Should you still use an array for the planets ? Or an array of objects ?
+
+
+const planets = [
+    { name: 'Mercury', color: 'grey', moons: [] },
+    { name: 'Venus', color: 'yellow', moons: [] },
+    { name: 'Earth', color: 'blue', moons: ['Moon'] },
+    { name: 'Mars', color: 'red', moons: ['Phobos', 'Deimos'] },
+    { name: 'Jupiter', color: 'orange', moons: ['Io', 'Europa', 'Ganymede', 'Callisto'] },
+    { name: 'Saturn', color: 'goldenrod', moons: ['Titan', 'Enceladus', 'Rhea'] },
+    { name: 'Uranus', color: 'lightblue', moons: ['Miranda', 'Ariel', 'Umbriel', 'Titania', 'Oberon'] },
+    { name: 'Neptune', color: 'darkblue', moons: ['Triton', 'Proteus', 'Nereid'] }
+];
+
+function SolarSystem() {
+    const section = document.querySelector('.listPlanets');
+
+    planets.forEach(planet => {
+        const planetDiv = document.createElement('div');
+        planetDiv.classList.add('planet');
+        planetDiv.style.backgroundColor = planet.color;
+
+        section.appendChild(planetDiv);
+
+        planet.moons.forEach((moon, index) => {
+            const moonDiv = document.createElement('div');
+            moonDiv.classList.add('moon');
+
+            moonDiv.style.top = `${index * 40}px`;
+            moonDiv.style.left = `${index * 40}px`;
+
+            planetDiv.appendChild(moonDiv);
+        });
+    });
+}
+
+SolarSystem();
