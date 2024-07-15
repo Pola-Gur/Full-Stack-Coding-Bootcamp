@@ -43,11 +43,23 @@ const promise = new Promise((resolve, reject) => {
 //     .then(result => console.log(result))
 //     .catch(error => console.log(error));
 
+
 // 🌟 Exercise 3 : Resolve & Reject
 // Instructions
 // Use Promise.resolve(value) to create a promise that will resolve itself with a value of 3.
 // Use Promise.reject(error) to create a promise that will reject itself with the string “Boo!”
 
 
-// Exercise 4: Quizz - Not Mandatory
-// Follow this tutorial and do the quizz until the page called “a few tricks with promises”.
+const resolvePromise = Promise.resolve(3);
+const rejectPromise = Promise.reject("Boo!");
+
+resolvePromise
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+
+rejectPromise
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+
+
+
