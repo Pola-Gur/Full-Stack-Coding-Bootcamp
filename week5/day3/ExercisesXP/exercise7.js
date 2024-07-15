@@ -65,7 +65,16 @@ sectionBooks.appendChild(bookBox2)
 
 const book1 = document.createTextNode("h3");
 const book2 = document.createTextNode("h3");
-book1.textContent = allBooks[0].title
-book2.textContent = allBooks[1].title
+book1.textContent = allBooks[0].title + " by " + allBooks[0].author
+book2.textContent = allBooks[1].title + " by " + allBooks[1].author
+
 bookBox1.appendChild(book1)
 bookBox2.appendChild(book2)
+
+if (allBooks[0].alreadyRead) {
+    bookBox1.style.color = "red";
+}
+if (allBooks[1].alreadyRead) {
+    bookBox2.style.color = "red";
+}
+
