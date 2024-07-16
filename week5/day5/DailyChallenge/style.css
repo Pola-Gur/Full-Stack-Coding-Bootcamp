@@ -1,0 +1,25 @@
+body {
+    background: rgb(243,74,74);
+    background: linear-gradient(250deg, rgba(243,74,74,1) 35%, rgba(220,159,158,1) 100%);
+    text-align: center;
+}
+
+main {
+    position: fixed; top: 20%; left: 40%;
+}
+form {
+    display: inline-flex;
+    border: 0;
+    height: 35px;
+    background-color: white;
+}
+h3 {
+    color: white;
+}
+button {
+    color: rgb(89, 115, 233);
+}
+
+section {
+    background: white;
+}
