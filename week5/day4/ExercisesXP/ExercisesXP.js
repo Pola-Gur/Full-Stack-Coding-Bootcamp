@@ -59,7 +59,6 @@ h1.addEventListener("mouseover", randomPX)
 // BONUS : When you hover on the 2nd paragraph, it should fade out (Check out “fade css animation” on Google)
 
 const p2 = article.getElementsByTagName('p')[1]
-console.log(p2)
 
 function fadeout() {
     let opacity = 1;
@@ -79,21 +78,22 @@ p2.addEventListener("mouseover", fadeout)
 // Instructions
 // Copy the code below, into a structured HTML file:
 
-// <form>
-//   <label for="fname">First name:</label><br>
-//   <input type="text" id="fname" name="firstname"><br>
-//   <label for="lname">Last name:</label><br>
-//   <input type="text" id="lname" name="lastname"><br><br>
-//   <input type="submit" value="Submit" id="submit">
-// </form> 
-// <ul class="usersAnswer"></ul>
-
-
 // Retrieve the form and console.log it.
+const form = document.getElementsByTagName("form")[0];
+console.log(form)
 
 // Retrieve the inputs by their id and console.log them.
 
+const fname = document.getElementById('fname');
+const lname = document.getElementById('lname');
+console.log(fname);
+console.log(lname);
+
 // Retrieve the inputs by their name attribute and console.log them.
+const firstname = document.getElementsByName("firstname")[0];
+const lastname = document.getElementsByName("lastname")[0];
+console.log(firstname);
+console.log(lastname);
 
 // When the user submits the form (ie. submit event listener)
 // use event.preventDefault(), why ?
@@ -101,6 +101,42 @@ p2.addEventListener("mouseover", fadeout)
 // make sure that they are not empty,
 // create an li per input value,
 // then append them to a the <ul class="usersAnswer"></ul>, below the form.
+
+// const usersAnswer = document.getElementsByName("usersAnswer")
+// const submit = document.getElementsByName("Submit");
+
+// function firstnameLength() {
+//     return firstname.values.length;
+// }
+
+// function lastnameLength() {
+//     return lastname.values.length;
+// }
+
+// function addOnPage() {
+//     const liFirst = document.createElement("li");
+//     liFirst.appendChild(document.createTextNode(firstname));
+//     usersAnswer.appendChild(liFirst);
+//     const liLast = document.createElement("li");
+//     liLast.appendChild(document.createTextNode(lastname));
+//     usersAnswer.appendChild(liLast);
+// }
+
+// function addListClick() {
+//     if (firstnameLength() > 0 && lastnameLength() > 0) {
+//         addOnPage()
+//     }
+
+// }
+// function addListKeyPress() {
+//     if (firstnameLength() > 0 && lastnameLength() > 0 && event.keyCode === 13) {
+//         addOnPage()
+//     }
+// }
+
+// submit.addEventListener("click", addListClick);
+// lastname.addEventListener("keypress", addListKeyPress)
+
 // The output should be :
 
 // <ul class="usersAnswer">
