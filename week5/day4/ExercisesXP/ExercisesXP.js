@@ -38,7 +38,10 @@ h3.addEventListener("click", hideH3)
 const btn = document.querySelector("button")
 
 function everythingBold() {
-    document.body.style.fontWeight = "bold"
+    const paragraphs = article.querySelectorAll('p');
+    paragraphs.forEach(paragraph => {
+        paragraph.style.fontWeight = "bold";
+    });
 }
 
 btn.addEventListener("click", everythingBold)
@@ -55,7 +58,22 @@ h1.addEventListener("mouseover", randomPX)
 
 // BONUS : When you hover on the 2nd paragraph, it should fade out (Check out “fade css animation” on Google)
 
+const p2 = article.getElementsByTagName('p')[1]
+console.log(p2)
 
+function fadeout() {
+    let opacity = 1;
+    const timer = setInterval(() => {
+    if (opacity <= 0.1) {
+        clearInterval(timer);
+        p2.style.display = 'none';
+    }
+    p2.style.opacity = opacity;
+    p2.style.filter = 'alpha(opacity=' + opacity * 100 + ")";
+    opacity -= opacity * 0.1;
+    }, 50);
+}
+p2.addEventListener("mouseover", fadeout)
 
 // 🌟 Exercise 2 : Work With Forms
 // Instructions
