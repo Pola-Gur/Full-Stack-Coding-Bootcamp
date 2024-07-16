@@ -45,7 +45,16 @@ btn.addEventListener("click", everythingBold)
 
 // BONUS : When you hover on the h1, set the font size to a random pixel size between 0 to 100.(Check out this documentation)
 
+function randomPX() {
+    console.log(h1.style.fontSize)
+    h1.style.fontSize = Math.floor(0 + Math.random() * 100) + "px"
+    console.log(h1.style.fontSize)
+}
+
+h1.addEventListener("mouseover", randomPX)
+
 // BONUS : When you hover on the 2nd paragraph, it should fade out (Check out “fade css animation” on Google)
+
 
 
 // 🌟 Exercise 2 : Work With Forms
