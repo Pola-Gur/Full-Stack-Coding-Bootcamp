@@ -12,14 +12,20 @@ form {
     border: 0;
     height: 35px;
     background-color: white;
+    margin-bottom: 10p;
 }
 h3 {
     color: white;
 }
-button {
+#add {
     color: rgb(89, 115, 233);
 }
 
 section {
     background: white;
+}
+
+#clear {
+    margin-top: 10px;
+    color: rgb(243,74,74);
 }

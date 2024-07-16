@@ -19,15 +19,28 @@ const tasks = [];
 // a “X” button. Use font awesome for the “X” button.
 // an input type="checkbox". The label of the input is the task added by the user.
 
-function addTask(event) {
-    event.preventdefault()
+document.getElementById('taskForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    addTask();
+});
 
-    tasks.push(...)
+function addTask() {
+    const taskInput = document.getElementById('inputTask');
+    const taskLine = taskInput.value.trim();
 
-    type="checkbox"
+    if (taskLine === '') {
+        alert('Please enter a task');
+        return;
+    }
 
+    tasks.push(taskLine);
+    taskInput.value = '';
+    showTasks();
 }
 
+function showTask() {
+    
+}
 // BONUS I (not mandatory):
 // Change the variable tasks to an array of task objects.
 // Each new task added to the array should have the properties : task_id, text and done (a boolean - false by default).
