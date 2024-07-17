@@ -2,33 +2,76 @@ body {
     background: rgb(243,74,74);
     background: linear-gradient(250deg, rgba(243,74,74,1) 35%, rgba(220,159,158,1) 100%);
     text-align: center;
+    font-family: Arial, sans-serif;
 }
 
+ 
 main {
     position: fixed; top: 20%; left: 40%;
-}
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-h3 {
-    color: white;
-}
-#add {
-    color: rgb(89, 115, 233);
+    background: white;
+    padding: 20px;
 }
 
-section {
-    background: white;
+h3 {
+    color: black;
+    text-align: center;
 }
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+} 
+
+#add {
+    color: rgb(89, 115, 233);
+    background-color: white;
+}
+
 
 #clear {
     margin-top: 10px;
     color: rgb(243,74,74);
 }
+
 point.completed .taskText {
     text-decoration: line-through;
     color: #999;
+} 
+
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+ } 
+
+
+button {
+    padding: 10px;
+    background: #ce0c0c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
 }
+
+button#clear {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #dc3545;
+}
+.point.completed .taskLine {
+    text-decoration: line-through;
+    color: #961616;
+}
+
+.listTasks {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+
+
+
+

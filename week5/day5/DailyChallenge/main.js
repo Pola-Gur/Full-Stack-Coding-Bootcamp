@@ -9,6 +9,7 @@
 
 // In the js file, you must add the following functionalities:
 // Create an empty array : 
+
 const tasks = [];
 
 // Create a function called addTask(). As soon as the user clicks on the button:
@@ -19,9 +20,14 @@ const tasks = [];
 // a “X” button. Use font awesome for the “X” button.
 // an input type="checkbox". The label of the input is the task added by the user.
 
+
 document.getElementById('taskForm').addEventListener('submit', function(event) {
     event.preventDefault();
     addTask();
+});
+
+document.getElementById('clear').addEventListener('click', function() {
+    clearTasks();
 });
 
 function addTask() {
@@ -38,7 +44,7 @@ function addTask() {
     showTasks();
 }
 
-function showTask() {
+function showTasks() {
     const listTasks = document.querySelector('.listTasks');
     listTasks.innerHTML = '';
 
@@ -59,8 +65,8 @@ function showTask() {
     const cancel = document.createElement("button");
     cancel.innerHTML = '<i class="fas fa-times"></i>';
     cancel.addEventListener("click", () => {
-        task.splice(index, 1);
-        showTask();
+        tasks.splice(index, 1);
+        showTasks();
     });
     
     point.appendChild(checkbox);
@@ -69,6 +75,11 @@ function showTask() {
 
     listTasks.appendChild(point);
 });
+}
+
+function clearTasks() {
+    tasks.length = 0;
+    showTasks();
 }
 
 // BONUS I (not mandatory):
