@@ -39,8 +39,38 @@ function addTask() {
 }
 
 function showTask() {
+    const listTasks = document.querySelector('.listTasks');
+    listTasks.innerHTML = '';
+
+    tasks.forEach((task, index) => {
+        const point = document.createElement('div');
+        point.className = 'point';
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.addEventListener('change', () => {
+            point.classList.toggle('completed');
+    });
     
+    const taskLine = document.createElement('span');
+    taskLine.className = 'taskLine';
+    taskLine.textContent = task;
+
+    const cancel = document.createElement("button");
+    cancel.innerHTML = '<i class="fas fa-times"></i>';
+    cancel.addEventListener("click", () => {
+        task.splice(index, 1);
+        showTask();
+    });
+    
+    point.appendChild(checkbox);
+    point.appendChild(taskLine);
+    point.appendChild(cancel);
+
+    listTasks.appendChild(point);
+});
 }
+
 // BONUS I (not mandatory):
 // Change the variable tasks to an array of task objects.
 // Each new task added to the array should have the properties : task_id, text and done (a boolean - false by default).

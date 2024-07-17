@@ -8,11 +8,10 @@ main {
     position: fixed; top: 20%; left: 40%;
 }
 form {
-    display: inline-flex;
-    border: 0;
-    height: 35px;
-    background-color: white;
-    margin-bottom: 10p;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 h3 {
     color: white;
@@ -28,4 +27,8 @@ section {
 #clear {
     margin-top: 10px;
     color: rgb(243,74,74);
+}
+point.completed .taskText {
+    text-decoration: line-through;
+    color: #999;
 }
