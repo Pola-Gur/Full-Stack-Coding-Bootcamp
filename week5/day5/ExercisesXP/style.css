@@ -1,0 +1,11 @@
+#colors {
+   
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    height: 100vh;
+    width: 15%;
+}
+button {
+    width: 15%;
+}
