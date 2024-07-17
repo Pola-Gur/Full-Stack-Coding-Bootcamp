@@ -12,7 +12,7 @@ colors.forEach(color => {
     color.addEventListener("click", checker);
 });
 
-// const square = document.querySelectorAll("#field div");
+
 
 const main = document.querySelector("main");
 main.addEventListener("click", function(event) {
@@ -23,6 +23,13 @@ main.addEventListener("click", function(event) {
 
 
 const clear = document.getElementById("clear");
+
+clear.addEventListener("click", function() {
+    const squares = document.querySelectorAll("#field div");
+    squares.forEach(square => {
+        square.style.backgroundColor = 'white';
+    });
+});
 
 
 // I did it in general, the color changes by clicking;
