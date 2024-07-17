@@ -1,11 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html {
+    height: 100%;
+}
+#container {
+    display: flex;
+    height: 100vh;
+}
 #colors {
    
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    height: 100vh;
-    width: 15%;
+    grid-template-rows: repeat(7, 1fr);
+    height: 96vh;
+    width: 40vh;
 }
 button {
-    width: 15%;
+    width: 100%;
+}
+
+#field {
+    display: grid;
+    grid-template-columns: repeat(50, 1fr);
+    flex-grow: 1;
+    border: 1px, solid, gray;
+}
+#field div {
+    border: 1px solid lightgray;
 }
