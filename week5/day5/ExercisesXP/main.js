@@ -23,3 +23,7 @@ main.addEventListener("click", function(event) {
 
 
 const clear = document.getElementById("clear");
+
+
+// I did it in general, the color changes by clicking;
+// I'll figure out how to add a fill when the mouse is pressed (mouseup, mousedown, I suppose...)
