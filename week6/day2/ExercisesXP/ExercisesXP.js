@@ -94,10 +94,15 @@ console.log(result)
 
 // 🌟 Exercise 5 : Star Wars
 // Instructions
-// Using this array const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
+// Using this array 
+const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
 
 // Use the reduce() method to combine all of these into a single string.
 
+function redFunc(string, char) {
+    return string + " " + char; 
+}
+console.log(epic.reduce(redFunc))
 
 // 🌟 Exercise 6 : Employees #2
 // Instructions
