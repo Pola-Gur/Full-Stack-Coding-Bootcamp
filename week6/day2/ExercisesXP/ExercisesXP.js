@@ -4,7 +4,7 @@
 
 const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
 // Write a JavaScript program that displays the colors in the following order : “1# choice is Blue.” “2# choice is Green.” “3# choice is Red.” ect…
-colors.forEach((color, index) => {console.log(`№${index} choice is ${color}.`)})
+colors.forEach((color, index) => {console.log(`${index+1}# choice is ${color}.`)})
 // Check if at least one element of the array is equal to the value “Violet”. If yes, console.log("Yeah"), else console.log("No...")
 // Hint : Use the array methods taught in class. Look at the lesson Array Methods.
 if (colors.some(color => color === "Violet")) {
@@ -18,10 +18,29 @@ if (colors.some(color => color === "Violet")) {
 // Using these arrays :
 
 // const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
-// const ordinal = ["th","st","nd","rd"];
+const ordinal = ["th","st","nd","rd"];
 // Write a JavaScript program that displays the colors in the following order : “1st choice is Blue .” “2nd choice is Green.” “3rd choice is Red.” ect…
 // Hint : Use the array methods taught in class and ternary operator.
 
+// colors.forEach((color, index) => {
+//     const ordIndex = (index + 1) % 10; // Last digit of the index + 1
+//     const suffix = (index + 1) % 100 >= 11 && (index + 1) % 100 <= 13 ? "th" : ordinal[ordIndex] || "th"; // Handle 11, 12, 13
+//     console.log(`${index + 1}${suffix} choice is ${color}.`);
+//   });
+
+colors.forEach((color, index) => {
+    if (index <= 3) {
+        if ((index+1)%10 === 1) {
+            console.log(`${index+1}${ordinal[Number(1)]} choice is ${color}.`);
+        } else if ((index+1)%10 === 2) {
+            console.log(`${index+1}${ordinal[Number(2)]} choice is ${color}.`);
+        } else if ((index+1)%10 === 3) {
+            console.log(`${index+1}${ordinal[Number(3)]} choice is ${color}.`);
+        } else if (index >= 3) {
+            console.log(`${index+1}${ordinal[Number(0)]} choice is ${color}.`);
+        }
+    }
+});
 
 // Exercise 3 : Analyzing
 // Instructions
@@ -32,15 +51,17 @@ if (colors.some(color => color === "Violet")) {
 
 // const result = ['bread', ...vegetables, 'chicken', ...fruits];
 // console.log(result);
+// ['bread', 'carrot", "potato', 'chicken', 'apple', 'orange']
 
 // ------2------
 // const country = "USA";
 // console.log([...country]);
+// ['U', 'S', 'A']
 
 // ------Bonus------
 // let newArray = [...[,,]];
 // console.log(newArray);
-
+// [undefined, undefined]
 
 // 🌟 Exercise 4 : Employees
 // Instructions
