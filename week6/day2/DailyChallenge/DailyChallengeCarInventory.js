@@ -29,6 +29,13 @@ console.log(getCarHonda(inventory));
 // Hint : Check out this tutorial on the sort method
 // Use the cars inventory below:
 
+function sortCarInventoryByYear(carInventory) {
+    return carInventory.sort((a, b) => a.car_year > b.car_year ? 1 : -1);
+}
+
+console.log(sortCarInventoryByYear(inventory))
+
+
 // const inventory = [
 //   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
 //   { id: 2, car_make: "Mazda", car_model: "Miata MX-5", car_year: 2001 },
