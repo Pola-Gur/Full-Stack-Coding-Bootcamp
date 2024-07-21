@@ -26,7 +26,6 @@ fetch('https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=hpvZycW
 
 
 
-
 // 🌟 Exercise 2 : Giphy API
 // Instructions
 // Read carefully the documention to understand all the possible queries that the URL accept.
@@ -49,6 +48,24 @@ fetch('https://api.giphy.com/v1/gifs/search?q=sun&limit=10&offset=2&api_key=hpvZ
 // fetch("https://www.swapi.tech/api/starships/9/")
 //     .then(response => response.json())
 //     .then(objectStarWars => console.log(objectStarWars.result));
+
+    
+async function fetchPractise() {
+    try {
+        let response = await fetch("https://www.swapi.tech/api/starships/9/");
+        if (response.ok) {
+            let json = await response.json();
+            console.log(json.result);
+    } else {
+        console.log("HTTP error! status: ", response.status);
+    }
+    } catch (error) {
+        console.log("Error: ", error);
+    }
+}
+
+fetchPractise()
+
 // Create an async function, that will await for the above GET request.
 // The program shouldn’t contain any then() method.
 // Make sure to check the status of the Response and to catch any occuring errors.
