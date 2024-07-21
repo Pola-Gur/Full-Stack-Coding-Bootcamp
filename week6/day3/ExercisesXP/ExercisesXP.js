@@ -31,7 +31,10 @@ console.log(displayStudentInfo({first: 'Elie', last:'Schoppik'}))
 
 // 🌟 Exercise 3: User & Id
 // Instructions
-// Using this object const users = { user1: 18273, user2: 92833, user3: 90315 }
+// Using this object
+const users = { user1: 18273, user2: 92833, user3: 90315 }
+const usersArray = Object.entries(users)
+console.log(usersArray)
 
 // Using methods taught in class, turn the users object into an array:
 // Excepted output: [ [ 'user1', 18273 ], [ 'user2', 92833 ], [ 'user3', 90315 ] ]
@@ -39,8 +42,13 @@ console.log(displayStudentInfo({first: 'Elie', last:'Schoppik'}))
 
 // Modify the outcome of part 1, by multipling the user’s ID by 2.
 // Excepted output: [ [ 'user1', 36546 ], [ 'user2', 185666 ], [ 'user3', 180630 ] ]
+const multiArray = []
+usersArray.forEach((user) => {
+    let resultMulti = user[1] * 2;
+    multiArray.push([users[0], resultMulti])
+});
 
-
+console.log(multiArray)
 // Exercise 4 : Person Class
 // Instructions
 // Analyze the code below. What will be the output?
