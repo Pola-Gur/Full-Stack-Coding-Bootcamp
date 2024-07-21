@@ -74,11 +74,11 @@ class Dog {
 };
 // Analyze the options below. Which constructor will successfully extend the Dog class?
   // 1
-class Labrador extends Dog {
-  constructor(name, size) {
-    this.size = size;
-  }
-};
+// class Labrador extends Dog {
+//   constructor(name, size) {
+//     this.size = size;
+//   }
+// };
 
 
   // 2
@@ -88,7 +88,7 @@ class Labrador extends Dog {
 //     this.size = size;
 //   }
 // };
-
+// THIS constructor
 
   // 3
 // class Labrador extends Dog {
@@ -114,7 +114,7 @@ class Labrador extends Dog {
 console.log([2] === [2]);
 console.log({} === {});
 
-// true
+// false
 // false
 
 // What is, for each object below, the value of the property number and why?
@@ -130,11 +130,26 @@ console.log(object3.number)
 console.log(object4.number)
 // 4 (just a copy of path to original onject1)
 // 4 (just a copy of path to original onject1)
-// 5
+// 5 (new object)
 
 // Create a class Animal with the attributes name, type and color. The type is the animal type, for example: dog, cat, dolphin etc …
 
-// Create a class Mammal that extends from the Animal class. Inside the class, add a method called sound(). This method takes a parameter: the sound the animal makes, and returns the details of the animal (name, type and color) as well as the sound it makes.
+class Animal {
+    this.name = name, 
+    this.type = type,
+    this.color = color,
+}
 
-// Create a farmerCow object that is an instance of the class Mammal. The object accepts a name, a type and a color and calls the sound method that “moos” her information.
+// Create a class Mammal that extends from the Animal class. Inside the class, add a method called sound().
+// This method takes a parameter: the sound the animal makes, and returns the details of the animal (name, type and color) as well as the sound it makes.
+
+class Mamal extends Animal {
+    function sound(animalSound) {
+
+    }
+}
+// Create a farmerCow object that is an instance of the class Mammal. The object accepts a name,
+// a type and a color and calls the sound method that “moos” her information.
 // For example: Moooo I'm a cow, named Lily and I'm brown and white
+
+const farmerCow = Mamal
