@@ -61,7 +61,7 @@ class Person {
 
 const member = new Person('John');
 console.log(typeof member);
-
+// object
 
 // 🌟 Exercise 5 : Dog Class
 // Instructions
