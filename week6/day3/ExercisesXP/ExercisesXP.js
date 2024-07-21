@@ -49,6 +49,7 @@ usersArray.forEach((user) => {
 });
 
 console.log(multiArray)
+
 // Exercise 4 : Person Class
 // Instructions
 // Analyze the code below. What will be the output?
