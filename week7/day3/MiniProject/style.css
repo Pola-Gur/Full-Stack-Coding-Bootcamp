@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    background-image: url(stars.jpg);
+}
+
+h1 {
+    color: #000000;
+    -webkit-text-stroke: 3px yellow;
+    font-size: 12vh;
+    font-weight: bold;
+    margin-bottom: 1vh;
+    margin-top: 0;
+}
+
+#inside {
+    width: 90vh;
+    height: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid yellow;
+    border-radius: 35px;
+    font-size: 40px;
+    padding-top: 12vh;
+    padding-bottom: 3vh;
+    margin-bottom: 2vh;
+}
