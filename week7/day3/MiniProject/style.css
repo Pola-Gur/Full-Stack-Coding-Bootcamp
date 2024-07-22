@@ -1,6 +1,7 @@
 body {
     text-align: center;
     background-image: url(stars.jpg);
+    color: white;
 }
 
 h1 {
@@ -23,4 +24,7 @@ h1 {
     padding-top: 12vh;
     padding-bottom: 3vh;
     margin-bottom: 2vh;
+}
+p {
+    font-size: 2vh;
 }

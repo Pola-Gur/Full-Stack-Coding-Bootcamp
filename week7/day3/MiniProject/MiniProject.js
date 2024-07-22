@@ -13,29 +13,57 @@
 // Fontawesome link :
 // https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
 
-const findSomeone = document.getElementById("find");
-const div = document.querySelector("div");
+
+const findSomeone = document.getElementById("Find");
+const insideSection = document.getElementById("inside");
 
 findSomeone.addEventListener("click", randomPerson);
 
 
-function randomPerson(num) {
+function randomPerson() {
     let num = Math.floor(Math.random() * 83) +1;
-    let fullUrl = `https://www.swapi.tech/people/${num}`;
+    let fullUrl = `https://www.swapi.tech/api/people/${num}`;
 
+    insideSection.innerHTML = '<i class="fa-solid fa-spinner fa-spin-pulse fa-spin-reverse"></i><p>Loading...</p>';
 
-fetch(fullUrl)
-    .then(response => response.json())
-    .then(data => {
-        const name = data.name;
-        const height = data.height;
-        const gender = data.gender;
-        const birth_year = data.birth_year;
-        const homeworld = `https://www.swapi.tech/api/planets/${num}`;
-
-        div.app
+    fetch(fullUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
     })
-    .catch(error => console.error("Oh no! That person isn't available."));
+        .then(data => {
+            const character = data.result.properties;
+            const name = character.name;
+            const height = character.height;
+            const gender = character.gender;
+            const birth_year = character.birth_year;
+            const homeworldUrl = character.homeworld;
+
+            return fetch(homeworldUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(planetData => {
+                const homeworld = planetData.result.properties.name;
+
+                    insideSection.innerHTML = `
+                        <p>Name: ${name}</p>
+                        <p>Height: ${height}</p>
+                        <p>Gender: ${gender}</p>
+                        <p>Birth Year: ${birth_year}</p>
+                        <p>Homeworld: ${homeworld}</p>
+                `;
+        });
+        })
+        .catch(error => {
+            insideSection.innerHTML = "<p>Oh no! That person isn't available.<p>";
+            console.error('Fetch error:', error);
+});
 }
 
 
@@ -51,3 +79,4 @@ fetch(fullUrl)
 
 
 // когда загрузилось или ошибка, скрывать секцию загрузки
+ // const homeworld = `https://www.swapi.tech/api/planets/${num}`;
