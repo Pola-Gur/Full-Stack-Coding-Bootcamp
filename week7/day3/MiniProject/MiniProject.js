@@ -13,22 +13,41 @@
 // Fontawesome link :
 // https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css
 
+const findSomeone = document.getElementById("find");
+const div = document.querySelector("div");
 
-let num = Math.floor(Math.random() * 83) +1;
+findSomeone.addEventListener("click", randomPerson);
 
-fetch(url)
-url = `https://www.swapi.tech/people/${num}`
 
-name
-height
-gender
-birth_year
-homeworld
-`https://www.swapi.tech/api/planets/${num}`
+function randomPerson(num) {
+    let num = Math.floor(Math.random() * 83) +1;
+    let fullUrl = `https://www.swapi.tech/people/${num}`;
+
+
+fetch(fullUrl)
+    .then(response => response.json())
+    .then(data => {
+        const name = data.name;
+        const height = data.height;
+        const gender = data.gender;
+        const birth_year = data.birth_year;
+        const homeworld = `https://www.swapi.tech/api/planets/${num}`;
+
+        div.app
+    })
+    .catch(error => console.error("Oh no! That person isn't available."));
+}
+
+
+
+
 
 
 
 // If there is an error getting the data, display a message as follows:
 
-"Oh no! That person isn't available."
+
 // You can use your own css to style the website as you see fit
+
+
+// когда загрузилось или ошибка, скрывать секцию загрузки
