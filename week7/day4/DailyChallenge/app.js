@@ -4,14 +4,7 @@ import { read_file } from "./read-file.js";
 
 console.log(greet("Pola"));
 colorfulText("This is a colorful message!");
-
-try {
-    let data = await read_file("/files/file-data.txt")
-    colorfulText(data);
-} catch (error) {
-    console.log("Error reading file:", error.message);
-}
-
+read_file();
 
 
 // require the greeting.js module and use the greet function to greet a user.

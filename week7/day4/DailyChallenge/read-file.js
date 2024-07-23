@@ -1,13 +1,15 @@
-import fs from "fs/promises";
-
-export const read_file = async (path) => {
-    try {
-        const data = await fs.readFile(path, 'utf-8');
-        return data;
-    } catch (error) {
-        throw new Error(error.message);
-    } 
-};
+import fs from "fs";
 
 
 // require the fs module and read the content from the file-data.txt file. Display the content in the terminal.
+
+export const read_file = () => {
+    fs.readFile('./files/file-data.txt', 'utf-8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+        } else {
+            console.log('Content of file-data.txt:', data);
+        }
+    });
+};
+

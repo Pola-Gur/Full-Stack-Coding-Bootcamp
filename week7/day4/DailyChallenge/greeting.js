@@ -1,5 +1,5 @@
 export const greet = (name) => {
-    console.log("Hello " + name)
+    return ("Hello " + name);
 }
 
 // define a function called greet that takes a name as a parameter and returns a personalized greeting message.

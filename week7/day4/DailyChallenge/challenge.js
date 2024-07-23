@@ -10,9 +10,4 @@ console.log(greet("John"));
 
 colorfulText("It is a colorfull message??");
 
-try {
-    const data = await readFile("./files/file-data.txt");
-    colorfulText(data);
-} catch (error) {
-    console.error("Error reading file:", error.message);
-}
+read_file();
