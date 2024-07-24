@@ -9,10 +9,12 @@ app.listen(PORT, ()=> {
     console.log("run on ", PORT);
 })
 
+app.use('/', express.static(__dirname + "/public"));
+
 app.get("/emojis", (req, res) => {
     const randomIndex = Math.floor(Math.random() * emojis.length)
     const randomEmoji = emojis[randomIndex];
 
-    res.json(randomEmoji);
+    res.json({randomEmoji});
 });
 
