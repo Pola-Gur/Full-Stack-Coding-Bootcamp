@@ -1,12 +1,21 @@
 import React from 'react';
 
+const style_header = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Arial"
+  };
+
 const Exercise = (props) => {
   const {  } = props;
   return (
-    <><h1 style={{
-        color: "red",
-        backgroundColor: "lightblue",
-        }} >Some h1 tag</h1>
+    <><h1 style={style_header
+        // {
+        // color: "red",
+        // backgroundColor: "lightblue",
+        // }
+        }>Some h1 tag</h1>
     <p></p>
     <a href="http://google.com"></a>
     <form>
