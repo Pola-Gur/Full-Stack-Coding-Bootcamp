@@ -1,5 +1,6 @@
 import './App.css';
 import UserFavoriteAnimals from './UserFavoriteAnimals';
+import Exercise from './Exercise3';
 
 const myelement = <h1>I Love JSX!</h1>;
 const sum = 5+5
@@ -17,6 +18,7 @@ function App() {
       <p>React is {sum} times better with JSX</p>
       <h3>{ user.firstName } { user.lastName }</h3>
       <UserFavoriteAnimals favAnimals={user.favAnimals} />
+      <Exercise/>
      </div>
   );
 }
