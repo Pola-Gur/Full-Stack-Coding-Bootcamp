@@ -4,28 +4,27 @@ const VotingApp = (props) => {
     const [languages, setLanguages] = useState([
         {name: "Php", votes: 0},
         {name: "Python", votes: 0},
-        {name: "JavaSript", votes: 0},
+        {name: "JavaScript", votes: 0},
         {name: "Java", votes: 0}
       ]);
     
-const vote = (index) => {
-    const newLanguages = [...languages]
-    languages[index].votes++
-    satLanguages(languages)
-};
+    const vote = (index) => {
+        const newLanguages = [...languages];
+        newLanguages[index].votes++;
+        setLanguages(newLanguages)
+    };
 
-return (
-    <>
-        <h1>Vote for...</h1>
-        {languages.map((item.index) => {
-            return (
+    return (
+        <>
+        <h1>Vote Your Language!</h1>
+        {languages.map((item, index) => (
                 <div key={index}>
                     {item.name} {item.votes}
-                    <button onClick={() => vote(index)}>Vote!</button>
+                    <button onClick={() => vote(index)}>Click Here</button>
                 </div>
-            )
-        })}
+            ))}
     </>
-)}
+    );
+};
 
-export default VotingApp
+export default VotingApp;
