@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Exercise.css"
 
 const style_header = {
     color: "white",
@@ -16,7 +17,7 @@ const Exercise = (props) => {
         // backgroundColor: "lightblue",
         // }
         }>Some h1 tag</h1>
-    <p></p>
+    <p className="para">Some paragraph tag</p>
     <a href="http://google.com"></a>
     <form>
         <input type="text" placeholder='your input'/>
