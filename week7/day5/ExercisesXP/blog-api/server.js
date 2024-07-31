@@ -4,15 +4,7 @@ const app = express();
 
 const PORT = 5003;
 app.use(express.json());
-
-app.get("/posts", (req, res) => {
-    res.json(Object.values(dataBasePosts))
-});
-
-
-// app.get("/posts", (req, res) => {
-//     res.send(dataBasePosts);
-// });
+app.use(express.static('public'));
 
 
 let dataBasePosts = [
@@ -43,9 +35,11 @@ let dataBasePosts = [
     },
 ]
 
+app.get('/posts', (req, res) => {
+    res.send(dataBasePosts)
+})
 
-
-// // GET /posts/:id: Return a specific blog post based on its id.
+// GET /posts/:id: Return a specific blog post based on its id.
 app.get("/posts/:id", (req, res) => {
     console.log(req.params);
     const { id } = req.params; 
@@ -56,23 +50,47 @@ app.get("/posts/:id", (req, res) => {
 
     res.send(onePost);
 });
-// // POST /posts: Create a new blog post.
-// // app.post()
+
+
+// POST /posts: Create a new blog post.
+
 app.post("/posts", (req, res) => {
     const newPost = {
-        "id": 6,
-        "title": "wow",
-        "content": "wow wow"
-        }
-    dataBasePosts[5] = newPost
+        id: dataBasePosts.length + 1,
+        title: "wow",
+        content: "wow wow"
+    };
+    dataBasePosts.push(newPost)
+    res.status(201).send(newPost);
 });
-// // // PUT /posts/:id: Update an existing blog post.
-// // app.put()
-// // // DELETE /posts/:id: Delete a blog post.
-// // app.delete()
 
-// // Implement error handling for invalid routes and server errors.
-// // Start the Express app and listen on a specified port (e.g., 3000).
+
+
+// PUT /posts/:id: Update an existing blog post.
+app.put("/posts/:id", (req, res)=> {
+    const {id} = req.params;
+    const index = dataBasePosts.findIndex(item => item.id == id);
+
+    if (index === -1) return res.status(404).json({msg: `ID = ${id} not found`});
+
+    dataBasePosts[index] = { id: Number(id), ...req.body };
+    res.send(dataBasePosts[index]);
+});
+
+
+
+// DELETE /posts/:id: Delete a blog post.
+app.delete("/posts/:id", (req, res)=> {
+    const {id} = req.params;
+    const index = dataBasePosts.findIndex(item => item.id == id);
+
+    if (index === -1) return res.status(404).json({msg: `ID = ${id} not found`});
+    dataBasePosts.splice(index, 1);
+    res.status(200).json("Post deleted")
+});
+
+// Implement error handling for invalid routes and server errors.
+// Start the Express app and listen on a specified port (e.g., 3000).
 
 
 app.listen(PORT, () => {
