@@ -63,9 +63,6 @@ app.get("/api/books/:bookId", (req, res) => {
 //     res.status(201).send(newBook)
 // })
 
-app.listen(PORT, () => {
-    console.log(`Run on ${PORT}`);
-});
 
 
 
@@ -86,3 +83,8 @@ app.post('/api/books', (req, res)=> {
     books.push(newBook)
     res.status(201).send(newBook)
 })
+
+
+app.listen(PORT, () => {
+    console.log(`Run on ${PORT}`);
+});
