@@ -51,17 +51,17 @@ app.get("/api/books/:bookId", (req, res) => {
 });
 
 
-app.post('/api/books', (req, res)=> {
-    let newBook = {
-        id: books.length -1,
-        title: req.body.title,
-        author: req.body.author, 
-        publishedYear: req.body.publishedYear,
-    }
+// app.post('/api/books', (req, res)=> {
+//     let newBook = {
+//         id: books.length -1,
+//         title: req.body.title,
+//         author: req.body.author, 
+//         publishedYear: req.body.publishedYear,
+//     }
 
-    books.push(newBook)
-    res.status(201).send(newBook)
-})
+//     books.push(newBook)
+//     res.status(201).send(newBook)
+// })
 
 app.listen(PORT, () => {
     console.log(`Run on ${PORT}`);
@@ -69,21 +69,20 @@ app.listen(PORT, () => {
 
 
 
-// app.post('/api/books', (req, res)=> {
-//     const { title, author, publishedYear } = req.body;
+app.post('/api/books', (req, res)=> {
+    const { title, author, publishedYear } = req.body;
 
-//     if (!title || !author || !publishedYear) {
-//         return res.status(400).json({ msg: "Title, author, and published year are required" });
-//     }
+    if (!title || !author || !publishedYear) {
+        return res.status(400).json({ msg: "Title, author, and published year are required" });
+    }
 
-//     const newBook = {
-//         id: books.length + 1,
-//         title,
-//         author,
-//         publishedYear,
-//     };
+    const newBook = {
+        id: books.length + 1,
+        title,
+        author,
+        publishedYear,
+    };
 
-//     books.push(newBook)
-//     res.status(201).send(newBook)
-// })
-// For future verification by creating a request in Postman (try adding not only the ID)
+    books.push(newBook)
+    res.status(201).send(newBook)
+})
