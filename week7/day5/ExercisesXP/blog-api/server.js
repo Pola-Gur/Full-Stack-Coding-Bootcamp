@@ -1,11 +1,18 @@
-// In server.js, require the express package and set up an Express app.
-// Create a data array to simulate a database. Each item in the array should represent a blog post with properties like id, title, and content.
-
 const express = require("express");
 
 const app = express();
 
 const PORT = 5003;
+app.use(express.json());
+
+app.get("/posts", (req, res) => {
+    res.json(Object.values(dataBasePosts))
+});
+
+
+// app.get("/posts", (req, res) => {
+//     res.send(dataBasePosts);
+// });
 
 
 let dataBasePosts = [
@@ -37,13 +44,8 @@ let dataBasePosts = [
 ]
 
 
-// Implement the following routes using Express:
-// GET /posts: Return a list of all blog posts.
-app.get("/posts", (req, res) => {
-    res.send(dataBasePosts);
-});
 
-// GET /posts/:id: Return a specific blog post based on its id.
+// // GET /posts/:id: Return a specific blog post based on its id.
 app.get("/posts/:id", (req, res) => {
     console.log(req.params);
     const { id } = req.params; 
@@ -54,15 +56,23 @@ app.get("/posts/:id", (req, res) => {
 
     res.send(onePost);
 });
-// POST /posts: Create a new blog post.
-// app.post()
-// // PUT /posts/:id: Update an existing blog post.
-// app.put()
-// // DELETE /posts/:id: Delete a blog post.
-// app.delete()
+// // POST /posts: Create a new blog post.
+// // app.post()
+app.post("/posts", (req, res) => {
+    const newPost = {
+        "id": 6,
+        "title": "wow",
+        "content": "wow wow"
+        }
+    dataBasePosts[5] = newPost
+});
+// // // PUT /posts/:id: Update an existing blog post.
+// // app.put()
+// // // DELETE /posts/:id: Delete a blog post.
+// // app.delete()
 
-// Implement error handling for invalid routes and server errors.
-// Start the Express app and listen on a specified port (e.g., 3000).
+// // Implement error handling for invalid routes and server errors.
+// // Start the Express app and listen on a specified port (e.g., 3000).
 
 
 app.listen(PORT, () => {
