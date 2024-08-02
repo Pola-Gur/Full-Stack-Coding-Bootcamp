@@ -46,12 +46,12 @@ taskRouter.post('/', (req, res) => {
 
 taskRouter.put("/:id", (req, res) => {
     const tasks = readTasks();
-    const taskIndex = tasks.findIndex(t => t.id === raseInt(req.params.id));
+    const taskIndex = tasks.findIndex(t => t.id === parseInt(req.params.id));
     if (taskIndex === -1) {
         return res.status(404).json({ error: "Task not found" });
     }
 
-    const updateTask = {
+    const updatedTask = {
         ...tasks[taskIndex],
         title: req.body.title || tasks[taskIndex].title,
         description: req.body.description || tasks[taskIndex].description,

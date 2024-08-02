@@ -1,8 +1,14 @@
 [
   {
     "id": 1,
-    "title": "New Task",
-    "description": "Description of the new task",
+    "title": "Updated Task",
+    "description": "Updated description",
+    "completed": true
+  },
+  {
+    "id": 2,
+    "title": "Another New Task",
+    "description": "Description of the another new task",
     "completed": false
   }
 ]
