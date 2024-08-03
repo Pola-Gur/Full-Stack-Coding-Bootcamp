@@ -1,4 +1,4 @@
-const { r} = require("../config/db.js");
+const { db } = require("../config/db.js");
 const bcrypt = require("bcrypt");
 
 module.exports = {
@@ -12,22 +12,67 @@ module.exports = {
                 {email, username, first_name, last_name },
                 ['username', 'id']
             );
-            //hash the password and insert into the 'hashpws' table
+            //hash the password and insert into the 'hashpwd' table
             const hashPassword = await bcrypt.hash(password+"", 10);
 
             await trx('hashpwd').insert(
                 {
                     username: user.username,
-                    password: hashPasswrod,
+                    password: hashPassword,
                 });
 
-                await text.commit()
+                await trx.commit()
 
                 return user;
 
         } catch (error) {
-            await text.rollback();
+            await trx.rollback();
             throw error;
         }
     },
+
+    getUserByUsername: async(email, username) => {
+        try {
+            const user = await db("users")
+                .select("users.id", "users.username", "hashpwd.password")
+                .join("hashpwd", {"users.username": "hashpwd.username"})
+                .where("users.username", username)
+                .orWhere("users.email", email)
+                .first();
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    getAllUsers: async() => {
+        try {
+            const users = await db("users");
+            return users
+        } catch(error) {
+            throw error
+        }
+    },
+
+    getUserById: async (id) => {
+        try {
+            const user = await db("users").where({ id }).first();
+            return user;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    updateUserById: async (id, userData) => {
+        try {
+            const [updatedUser] = await db("users")
+                .where({ id })
+                .update(userData, ['id', 'email', 'username', 'first_name', 'last_name']);
+            return updatedUser;
+        } catch (error) {
+            throw error;
+        }
+    }
 };
+
+

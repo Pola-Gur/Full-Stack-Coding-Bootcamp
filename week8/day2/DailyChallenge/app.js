@@ -11,4 +11,4 @@ app.listen(PORT, ()=>{
     console.log(`run on ${PORT}`)
 })
 
-app.use('/user', )
+app.use('/', userRouter )
