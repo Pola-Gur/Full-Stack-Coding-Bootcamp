@@ -1,73 +1,54 @@
 const { db } = require("../config/db.js");
 
 module.exports = {
-    createUser: async (userinfo) => {
-        const {username, password, email, first_name, last_name} = userinfo;
+    createPost: async (postInfo) => {
+        const { title, content } = postInfo;
 
-        const trx = await db.transaction();
         try {
-            // insert user data into 'users' table
-            const [user] = await trx("users").insert(
-                {email, username, first_name, last_name },
-                ['username', 'id']
+            const [newPost] = await db('posts').insert(
+                { title, content },
+                ['id', 'title', 'content']
             );
-            //hash the password and insert into the 'hashpwd' table
-            const hashPassword = await bcrypt.hash(password+"", 10);
-
-            await trx('hashpwd').insert(
-                {
-                    username: user.username,
-                    password: hashPassword,
-                });
-
-                await trx.commit()
-
-                return user;
-
-        } catch (error) {
-            await trx.rollback();
-            throw error;
-        }
-    },
-
-    getUserByUsername: async(email, username) => {
-        try {
-            const user = await db("users")
-                .select("users.id", "users.username", "hashpwd.password")
-                .join("hashpwd", {"users.username": "hashpwd.username"})
-                .where("users.username", username)
-                .orWhere("users.email", email)
-                .first();
-            return user;
+            return newPost;
         } catch (error) {
             throw error;
         }
     },
 
-    getAllUsers: async() => {
+
+    getAllPosts: async() => {
         try {
-            const users = await db("users");
-            return users
+            const posts = await db("posts");
+            return posts
         } catch(error) {
             throw error
         }
     },
 
-    getUserById: async (id) => {
+    getPostById: async (id) => {
         try {
-            const user = await db("users").where({ id }).first();
-            return user;
+            const post = await db("posts").where({ id }).first();
+            return post;
         } catch (error) {
             throw error;
         }
     },
 
-    updateUserById: async (id, userData) => {
+    updatePostById: async (id, postData) => {
         try {
-            const [updatedUser] = await db("users")
+            const [updatedPost] = await db("posts")
                 .where({ id })
-                .update(userData, ['id', 'email', 'username', 'first_name', 'last_name']);
-            return updatedUser;
+                .update(postData, ['id', 'title', 'content']);
+            return updatedPost;
+        } catch (error) {
+            throw error;
+        }
+    },
+
+    deletePostById: async (id) => {
+        try {
+            const deletedPost = await db('posts').where({ id }).del();
+            return deletedPost;
         } catch (error) {
             throw error;
         }

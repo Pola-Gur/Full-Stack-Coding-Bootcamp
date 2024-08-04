@@ -1,99 +1,78 @@
-const userModel = require("../models/userModels.js")
+const models = require("../models/models.js");
 
 module.exports = {
-    registerUser: async(req, res) => {
-        const { username, password, email, first_name, last_name} = req.body;
 
-        const user = {username, password, email, first_name, last_name}
-
+    getAllPosts: async (req, res) => {
         try {
-            const userInfo = await userModel.createUser(user);
-            res.status(201).json({
-                message: "User registred successfully",
-                user: userInfo, 
-            });
-        } catch (error) {
-            console.log(error.code);
-            if(error.code == 23505){
-                return res.status(500).json({error: "Email or username already exist"})    
-            }
-            res.status(500).json({error: "internal server error"})
-        }
-    },
-
-    loginUser: async (req, res) => {
-        const {email, username, password} = req.body;
-
-        try {
-            const user = await userModel.getUserByUsername(email,username);
-
-            if(!user) {
-                return res.status(404).json({message: "user not found"});
-
-            }
-
-            const passwordMatch = await bcrypt.compare(password+"", user.password);
-
-            if(!passwordMatch) {
-                return res.status(401).json({message: "Some problem with authentication"})
-            }
-
-            res.json({
-                message: "Login succesful",
-                user: { userid: user.id, username: user.username },
-            })
+            const posts = await models.getAllPosts();
+            res.json(posts);
         } catch(error) {
             console.log(error);
             res.status(500).json({ error: "internal server error"})
         }
     },
 
-    getAllUsers: async (req, res) => {
-        try {
-            const users = await userModel.getAllUsers();
-            res.json(users);
-        } catch(error) {
-            console.log(error);
-            res.status(500).json({ error: "internal server error"})
-        }
-    },
-
-    updateUser: async (req, res) => {
+    updatePost: async (req, res) => {
         try {
             const { id} = req.params;
-            const { email, username, first_name, last_name } = req.body;
+            const { title, content } = req.body;
 
-            const user = await userModel.getUserById(id); 
+            const updatedPost = await models.updatePostById(id, { title, content });
 
-            if (!user) {
-                return res.status(404).json({ error: "User not found" });
+            if (!updatedPost) {
+                return res.status(404).json({ error: 'Post not found' });
             }
 
-            const updatedUser = await userModel.updateUserById(id, { email, username, first_name, last_name });
-
             res.json({
-                message: "User updated successfully",
-                user: updatedUser,
+                message: 'Post updated successfully',
+                post: updatedPost,
             });
         } catch (error) {
-            console.log(error);
-            res.status(500).json({ error: "Internal server error" });
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error' });
         }
     },
 
-    getUser: async (req, res) => {
+    getPost: async (req, res) => {
         try {
             const { id} = req.params;
-            const user = await userModel.getUserById(id); 
+            const post = await models.getPostById(id); 
 
-            if (!user) {
-                return res.status(404).json({ error: "User not found" });
+            if (!post) {
+                return res.status(404).json({ error: "Post not found" });
             }
     
-            res.json(user);
+            res.json(post);
         } catch(error) {
             console.log(error);
-            res.status(404).json({ error: "User not found"})
+            res.status(404).json({ error: "Post not found"})
+        }
+    },
+
+    addPost: async (req, res) => {
+        try {
+            const { title, content } = req.body;
+            const newPost = await models.createPost({ title, content });
+            res.status(201).json(newPost);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    },
+
+    deletePost: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const deletedPost = await models.deletePostById(id);
+
+            if (!deletedPost) {
+                return res.status(404).json({ error: 'Post not found' });
+            }
+
+            res.json({ message: 'Post deleted successfully' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal server error' });
         }
     }
 };
