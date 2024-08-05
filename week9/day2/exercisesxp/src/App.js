@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <Car model={carinfo.model} />
       <Events/>
+      <Phone/>
     </div>
   );
 }
