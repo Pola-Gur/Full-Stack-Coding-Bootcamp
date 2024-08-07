@@ -44,6 +44,9 @@ function App() {
         <ErrorBoundary>
           <BuggyCounter/>
         </ErrorBoundary>
+        <ErrorBoundary>
+          <BuggyCounter/>
+        </ErrorBoundary>
       </div>
 
     </>
