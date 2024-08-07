@@ -41,12 +41,12 @@ function App() {
   return (
     <>
       <div className="card">
+        {/* <ErrorBoundary> */}
+          <BuggyCounter/>
+        {/* </ErrorBoundary>
         <ErrorBoundary>
           <BuggyCounter/>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <BuggyCounter/>
-        </ErrorBoundary>
+        </ErrorBoundary> */}
       </div>
 
     </>
