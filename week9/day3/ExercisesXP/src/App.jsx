@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import React from 'react';
 import './App.css'
+import ErrorBoundary from './ErrorBoundary';
 
 
 class BuggyCounter extends React.Component {
@@ -40,7 +41,9 @@ function App() {
   return (
     <>
       <div className="card">
-        <BuggyCounter/>
+        <ErrorBoundary>
+          <BuggyCounter/>
+        </ErrorBoundary>
       </div>
 
     </>
