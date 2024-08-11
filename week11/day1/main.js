@@ -35,5 +35,17 @@ var person = {
 console.log(person);
 //  ex 8 Given an HTML element, use a type assertion to cast it to a specific type and access its properties.
 var inputElement = document.getElementById("input");
-// ex 9 Create a function getAction that takes a string representing a user role and returns an action for the user. Use a switch statement with complex conditions to handle multiple roles.
+function getAction(userRole) {
+    switch (userRole) {
+        case "developer":
+            return "Go program!";
+        case "teacher":
+            return "Go teach!";
+        case "doctor":
+            return "Go heal!";
+        case "seller":
+            return "Go sell!";
+    }
+}
+console.log(getAction('doctor'));
 // ex 10 Create an overloaded function greet that can either take a name and greet the person, or take no arguments and return a default greeting.

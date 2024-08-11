@@ -66,6 +66,21 @@ const inputElement = document.getElementById("input") as HTMLInputElement;
 
 // ex 9 Create a function getAction that takes a string representing a user role and returns an action for the user. Use a switch statement with complex conditions to handle multiple roles.
 
+type UserRole = "developer" | "teacher" | "doctor" | "seller"
+function getAction(userRole: UserRole): string {
+    switch(userRole) {
+        case "developer":
+            return "Go program!";
+        case "teacher":
+            return "Go teach!";
+        case "doctor":
+            return "Go heal!";
+        case "seller":
+            return "Go sell!";
+    } 
+}
+
+console.log(getAction('doctor'))
 
 // ex 10 Create an overloaded function greet that can either take a name and greet the person, or take no arguments and return a default greeting.
 
