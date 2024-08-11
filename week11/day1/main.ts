@@ -87,7 +87,7 @@ console.log(getAction('doctor'))
 
 // ex 10 Create an overloaded function greet that can either take a name and greet the person, or take no arguments and return a default greeting.
 
-function greet(namePerson: string): string {
+function greet(namePerson?: string): string {
     if (namePerson) {
         return "Hello, " + namePerson + "!"
     }
