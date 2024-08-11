@@ -48,18 +48,21 @@ const getDetails = (someName: string, age: number): [string, string, number] => 
 // ex 7 Create a function createPerson that returns an object representing a person, with properties for name and age, using object type annotations.
 
 
-let createPerson: object;
-
-createPerson = {
-  firstName: "John",
-  age: 25,
+interface createPerson {
+  firstName: string,
+  age: number,
 };
 
-console.log(createPerson);
+let person: createPerson = {
+    firstName: "John",
+    age: 25,
+}
+
+console.log(person);
 
 //  ex 8 Given an HTML element, use a type assertion to cast it to a specific type and access its properties.
 
-
+const inputElement = document.getElementById("input") as HTMLInputElement;
 
 // ex 9 Create a function getAction that takes a string representing a user role and returns an action for the user. Use a switch statement with complex conditions to handle multiple roles.
 

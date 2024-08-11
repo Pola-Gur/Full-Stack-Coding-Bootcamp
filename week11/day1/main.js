@@ -27,14 +27,13 @@ var getDetails = function (someName, age) {
     var greeting = "Hi, ";
     return [greeting, someName, age];
 };
-// console.log(getDetails("Po", 29))
-// ex 7 Create a function createPerson that returns an object representing a person, with properties for name and age, using object type annotations.
-var createPerson;
-createPerson = {
+;
+var person = {
     firstName: "John",
     age: 25,
 };
-console.log(createPerson);
+console.log(person);
 //  ex 8 Given an HTML element, use a type assertion to cast it to a specific type and access its properties.
+var inputElement = document.getElementById("input");
 // ex 9 Create a function getAction that takes a string representing a user role and returns an action for the user. Use a switch statement with complex conditions to handle multiple roles.
 // ex 10 Create an overloaded function greet that can either take a name and greet the person, or take no arguments and return a default greeting.
