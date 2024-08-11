@@ -1,33 +1,82 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route, NavLink, Link } from "react-router-dom";
+import ErrorBoundary from './components/ErrorBoundary.jsx';
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css'
+
+const HomeScreen = () => (
+  <div>
+    <h1>HomePage</h1>
+    <img
+      src="https://cdn.pixabay.com/photo/2018/05/18/15/30/webdesign-3411373_1280.jpg"
+      alt="Homepage"
+      width="40%" />
+  </div>
+);
+
+
+const ProfileScreen = () => (
+  <div>
+    <h1>ProfileSCreen</h1>
+    <img
+      src="https://cdn.pixabay.com/photo/2018/05/18/15/30/webdesign-3411373_1280.jpg"
+      alt="ProfileScreen"
+      width="40%" />
+  </div>
+)
+
+const ShopScreen = () => {
+  throw new Error 
+}
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        {/* <NavLink
+          to="/messages"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Messages
+        </NavLink>; */}
+         <div>
+           <ul>
+             <li>
+               <Link to="/">HomePage</Link>
+             </li>
+             <li>
+               <Link to="/profile">ProfileScreen</Link>
+             </li>
+             <li>
+               <Link to="/shop">ShopScreen</Link>
+             </li>
+           </ul>
+           <Routes>
+           
+             <Route path="/" element={
+              <ErrorBoundary>
+                <HomeScreen />
+              </ErrorBoundary>} />
+            
+             
+             <Route path="/profile" element={<ErrorBoundary>
+              <ProfileScreen />
+             </ErrorBoundary> 
+             } />
+              
+             
+             <Route path="/shop" element={
+              <ErrorBoundary>
+                <ShopScreen />
+             </ErrorBoundary>} />
+
+           </Routes>
+         </div>
+
     </>
   )
 }
