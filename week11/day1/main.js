@@ -18,9 +18,13 @@ var fromNumberToString = function (num) {
         return "positive";
     }
 };
-// console.log(fromNumberToString(-3))
-// ex 5 Create a function called add that can add two numbers together or concatenate two strings.
-var add = function (a, b) {
+function add(a, b) {
     return a + b;
-};
+}
 // console.log(add('3','7'))
+//  ex 6 Create a function getDetails that takes a name and age as input and returns a tuple containing the input values and a greeting message.
+var getDetails = function (someName, age) {
+    var greeting = "Hi, ";
+    return [greeting, someName, age];
+};
+// console.log(getDetails("Po", 29))

@@ -27,8 +27,19 @@ const fromNumberToString = (num: number): string => {
 
 
 // ex 5 Create a function called add that can add two numbers together or concatenate two strings.
-const add = (a: string | number, b:  string | number):  string | number => {
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+function add(a: any, b: any): any 
+{
     return a + b;
 }
 
 // console.log(add('3','7'))
+
+//  ex 6 Create a function getDetails that takes a name and age as input and returns a tuple containing the input values and a greeting message.
+
+const getDetails = (someName: string, age: number): [string, string, number] => {
+    const greeting = "Hi, " 
+    return [greeting, someName, age]
+}
+// console.log(getDetails("Po", 29))
