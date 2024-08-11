@@ -48,17 +48,20 @@ const getDetails = (someName: string, age: number): [string, string, number] => 
 // ex 7 Create a function createPerson that returns an object representing a person, with properties for name and age, using object type annotations.
 
 
-interface createPerson {
+interface Person {
   firstName: string,
   age: number,
 };
 
-let person: createPerson = {
-    firstName: "John",
-    age: 25,
+function createPerson(inputName: string, inputAge: number): Person {
+    let person: Person = {
+    firstName: inputName,
+    age: inputAge,
+    }
+    return person
 }
 
-console.log(person);
+console.log(createPerson("Po", 29));
 
 //  ex 8 Given an HTML element, use a type assertion to cast it to a specific type and access its properties.
 
@@ -84,3 +87,13 @@ console.log(getAction('doctor'))
 
 // ex 10 Create an overloaded function greet that can either take a name and greet the person, or take no arguments and return a default greeting.
 
+function greet(namePerson: string): string {
+    if (namePerson) {
+        return "Hello, " + namePerson + "!"
+    }
+    return "Hello, anonymous!"
+}
+
+
+console.log(greet("Lol"));
+console.log(greet());

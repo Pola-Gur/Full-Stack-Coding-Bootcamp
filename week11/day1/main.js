@@ -28,11 +28,14 @@ var getDetails = function (someName, age) {
     return [greeting, someName, age];
 };
 ;
-var person = {
-    firstName: "John",
-    age: 25,
-};
-console.log(person);
+function createPerson(inputName, inputAge) {
+    var person = {
+        firstName: inputName,
+        age: inputAge,
+    };
+    return person;
+}
+console.log(createPerson("Po", 29));
 //  ex 8 Given an HTML element, use a type assertion to cast it to a specific type and access its properties.
 var inputElement = document.getElementById("input");
 function getAction(userRole) {
@@ -49,3 +52,11 @@ function getAction(userRole) {
 }
 console.log(getAction('doctor'));
 // ex 10 Create an overloaded function greet that can either take a name and greet the person, or take no arguments and return a default greeting.
+function greet(namePerson) {
+    if (namePerson) {
+        return "Hello, " + namePerson + "!";
+    }
+    return "Hello, anonymous!";
+}
+console.log(greet("Lol"));
+console.log(greet());
