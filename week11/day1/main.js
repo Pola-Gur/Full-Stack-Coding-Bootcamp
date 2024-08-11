@@ -1,5 +1,6 @@
 // ex 1 Create a TypeScript program that logs the message “Hello, World!” to the console.
-console.log("Hello, World!");
+var message = "Hello, World!";
+console.log(message);
 // ex 2 Define a variable age of type number and a variable name of type string, and log them to the console.
 var age = 23;
 var nameExercise2 = "Zvi";
