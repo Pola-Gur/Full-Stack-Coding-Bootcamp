@@ -7,6 +7,7 @@ function App() {
 
   return (
     <>
+    <h2>Hi! This is a Title</h2>
       <PostList/>
     </>
   )
