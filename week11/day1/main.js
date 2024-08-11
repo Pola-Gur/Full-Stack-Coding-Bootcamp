@@ -19,3 +19,8 @@ var fromNumberToString = function (num) {
     }
 };
 // console.log(fromNumberToString(-3))
+// ex 5 Create a function called add that can add two numbers together or concatenate two strings.
+var add = function (a, b) {
+    return a + b;
+};
+// console.log(add('3','7'))

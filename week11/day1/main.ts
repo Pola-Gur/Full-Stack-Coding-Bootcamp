@@ -24,3 +24,11 @@ const fromNumberToString = (num: number): string => {
 }
 
 // console.log(fromNumberToString(-3))
+
+
+// ex 5 Create a function called add that can add two numbers together or concatenate two strings.
+const add = (a: string | number, b:  string | number):  string | number => {
+    return a + b;
+}
+
+// console.log(add('3','7'))
