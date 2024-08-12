@@ -1,5 +1,16 @@
 // exercise 1
 // Description: Create a class Person with private, protected, and public properties. Include a constructor to initialize the properties and a method that returns the full name of the person.
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 // A private property firstName of type string.
 // A private property lastName of type string.
 // A public property age of type number.
@@ -21,14 +32,31 @@ var Person = /** @class */ (function () {
 }());
 var person1 = new Person("Pola", "Gur", 29, "Israel");
 console.log(person1);
-// exercise 2
-// Description: Create an interface Vehicle with common properties and methods, then create another interface Car that extends Vehicle and includes additional properties specific to a car.
-// Create an interface Vehicle with properties make and model, both of type string, and a method start that returns a string. Then create an interface Car that extends Vehicle and includes an additional property numberOfDoors of type number.
-// In this exercise, an interface Vehicle is created with common properties (make and model) and a method (start). Another interface Car extends Vehicle and includes an additional property numberOfDoors. A class Sedan implements the Car interface and provides the implementation for the start method.
+var Sedan = /** @class */ (function () {
+    function Sedan(make, model, numberOfDoors) {
+        this.make = make;
+        this.model = model;
+        this.numberOfDoors = numberOfDoors;
+    }
+    Sedan.prototype.start = function () {
+        return "The ".concat(this.make, " ").concat(this.model, " is starting.");
+    };
+    return Sedan;
+}());
+var car1 = new Sedan('Audi', 'A6', 4);
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.numberOfDoors);
+console.log(car1.start());
 // exercise 3
 // Description: Create a function that combines two objects using intersection types and returns a new object containing all properties from both objects.
 // Create a function combineObjects that accepts two objects and combines them using intersection types. The function should return a new object containing all properties from both input objects.
 // In this exercise, a function combineObjects accepts two objects of types T and U and returns a new object containing all properties from both input objects using intersection types. The function uses the spread operator to combine the properties of the two objects.
+function combineObjects(obj1, obj2) {
+    return __assign(__assign({}, obj1), obj2);
+}
+var result = combineObjects({ type: "Fiat", model: "500", color: "white" }, { country: "Italy", year: "1899" });
+console.log(result);
 // exercise 4
 // Description: Create a generic class Stack that represents a stack data structure. The class should support operations like push, pop, and isEmpty.
 // Create a generic class Stack<T> that supports the following operations:
@@ -36,6 +64,31 @@ console.log(person1);
 // A pop method that removes the top element from the stack and returns it.
 // An isEmpty method that checks whether the stack is empty.
 // In this exercise, a generic class Stack<T> represents a stack data structure. The class supports operations such as push, pop, and isEmpty. The push method adds an element of type T to the stack, the pop method removes and returns the top element, and the isEmpty method checks if the stack is empty.
+var Stack = /** @class */ (function () {
+    function Stack() {
+        this.items = [];
+    }
+    Stack.prototype.push = function (item) {
+        this.items.push(item);
+    };
+    Stack.prototype.pop = function () {
+        return this.items.pop();
+    };
+    Stack.prototype.isEmpty = function () {
+        return this.items.length === 0;
+    };
+    return Stack;
+}());
+var testStack = new Stack();
+testStack.push(10);
+testStack.push(32);
+console.log(testStack.pop());
+console.log(testStack.isEmpty());
+var stringStack = new Stack();
+stringStack.push("test");
+stringStack.push("new Test");
+console.log(stringStack.pop());
+console.log(stringStack.isEmpty());
 // exercise 5
 // Description: Create a generic function filterArray that accepts an array and a predicate function, and returns a new array containing elements that satisfy the predicate.
 // Create a generic function filterArray<T> that accepts an array of type T and a predicate function (element: T) => boolean. The function should return a new array containing elements that satisfy the predicate.

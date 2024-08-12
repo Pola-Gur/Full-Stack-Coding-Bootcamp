@@ -39,7 +39,37 @@ console.log(person1)
 // Create an interface Vehicle with properties make and model, both of type string, and a method start that returns a string. Then create an interface Car that extends Vehicle and includes an additional property numberOfDoors of type number.
 // In this exercise, an interface Vehicle is created with common properties (make and model) and a method (start). Another interface Car extends Vehicle and includes an additional property numberOfDoors. A class Sedan implements the Car interface and provides the implementation for the start method.
 
+interface Vehice {
+    make: string;
+    model: string;
+    start(): string;
+}
 
+interface Car extends Vehice {
+    numberOfDoors: number;
+}
+
+class Sedan implements Car {
+    make: string;
+    model: string;
+    numberOfDoors: number;
+        
+    constructor(make: string, model: string, numberOfDoors: number) {
+        this.make = make;
+        this.model = model;
+        this.numberOfDoors = numberOfDoors;
+      }
+    
+    start(): string {
+      return `The ${this.make} ${this.model} is starting.`;
+    }
+}
+
+const car1 = new Sedan('Audi', 'A6', 4);
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.numberOfDoors); 
+console.log(car1.start()); 
 
 
 // exercise 3
@@ -48,8 +78,16 @@ console.log(person1)
 // Create a function combineObjects that accepts two objects and combines them using intersection types. The function should return a new object containing all properties from both input objects.
 // In this exercise, a function combineObjects accepts two objects of types T and U and returns a new object containing all properties from both input objects using intersection types. The function uses the spread operator to combine the properties of the two objects.
 
+function combineObjects<U, T>(obj1: U, obj2: T): U & T {
+    return {
+        ...obj1,
+        ...obj2,
+    };
+}
 
+let result = combineObjects({type:"Fiat", model:"500", color:"white"}, {country:"Italy", year:"1899"})
 
+console.log(result)
 
 // exercise 4
 // Description: Create a generic class Stack that represents a stack data structure. The class should support operations like push, pop, and isEmpty.
@@ -60,6 +98,34 @@ console.log(person1)
 // An isEmpty method that checks whether the stack is empty.
 // In this exercise, a generic class Stack<T> represents a stack data structure. The class supports operations such as push, pop, and isEmpty. The push method adds an element of type T to the stack, the pop method removes and returns the top element, and the isEmpty method checks if the stack is empty.
 
+
+class Stack<T> {
+    items: T[] = [];
+
+    push(item: T): void {
+        this.items.push(item);
+    }
+
+    pop(): T | undefined {
+        return this.items.pop();
+    }
+
+    isEmpty(): boolean {
+        return this.items.length === 0;
+    }
+}
+
+const testStack = new Stack<number>();
+testStack.push(10);
+testStack.push(32);
+console.log(testStack.pop()); 
+console.log(testStack.isEmpty());
+
+const stringStack = new Stack<string>();
+stringStack.push("test");
+stringStack.push("new Test");
+console.log(stringStack.pop()); 
+console.log(stringStack.isEmpty()); 
 
 
 
