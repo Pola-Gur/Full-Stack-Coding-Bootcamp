@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+#quoteDiv {
+  width: 70%;
+  height: 300px;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+}
