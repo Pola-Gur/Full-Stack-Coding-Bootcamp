@@ -39,7 +39,45 @@ console.log(person1)
 // Create an interface Vehicle with properties make and model, both of type string, and a method start that returns a string. Then create an interface Car that extends Vehicle and includes an additional property numberOfDoors of type number.
 // In this exercise, an interface Vehicle is created with common properties (make and model) and a method (start). Another interface Car extends Vehicle and includes an additional property numberOfDoors. A class Sedan implements the Car interface and provides the implementation for the start method.
 
+interface Vehice {
+    make: string;
+    model: string;
+    start(): string;
+}
 
+interface Car extends Vehice {
+    numberOfDoors: number;
+}
+
+
+class Sedan implements Car {
+    make: string;
+    model: string;
+    numberOfDoors: number;
+    
+    
+    constructor(make: string, model: string, numberOfDoors: number) {
+        this.make = make;
+        this.model = model;
+        this.numberOfDoors = numberOfDoors;
+      }
+    
+      start(): string {
+        return `The ${this.make} ${this.model} is starting.`;
+      }
+}
+
+
+
+
+
+const car1 = new Sedan('Audi', 'A6', 4);
+
+
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.numberOfDoors); 
+console.log(car1.start()); 
 
 
 // exercise 3

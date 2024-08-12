@@ -21,10 +21,22 @@ var Person = /** @class */ (function () {
 }());
 var person1 = new Person("Pola", "Gur", 29, "Israel");
 console.log(person1);
-// exercise 2
-// Description: Create an interface Vehicle with common properties and methods, then create another interface Car that extends Vehicle and includes additional properties specific to a car.
-// Create an interface Vehicle with properties make and model, both of type string, and a method start that returns a string. Then create an interface Car that extends Vehicle and includes an additional property numberOfDoors of type number.
-// In this exercise, an interface Vehicle is created with common properties (make and model) and a method (start). Another interface Car extends Vehicle and includes an additional property numberOfDoors. A class Sedan implements the Car interface and provides the implementation for the start method.
+var Sedan = /** @class */ (function () {
+    function Sedan(make, model, numberOfDoors) {
+        this.make = make;
+        this.model = model;
+        this.numberOfDoors = numberOfDoors;
+    }
+    Sedan.prototype.start = function () {
+        return "The ".concat(this.make, " ").concat(this.model, " is starting.");
+    };
+    return Sedan;
+}());
+var car1 = new Sedan('Audi', 'A6', 4);
+console.log(car1.make);
+console.log(car1.model);
+console.log(car1.numberOfDoors);
+console.log(car1.start());
 // exercise 3
 // Description: Create a function that combines two objects using intersection types and returns a new object containing all properties from both objects.
 // Create a function combineObjects that accepts two objects and combines them using intersection types. The function should return a new object containing all properties from both input objects.
