@@ -122,6 +122,34 @@ console.log(result)
 // An isEmpty method that checks whether the stack is empty.
 // In this exercise, a generic class Stack<T> represents a stack data structure. The class supports operations such as push, pop, and isEmpty. The push method adds an element of type T to the stack, the pop method removes and returns the top element, and the isEmpty method checks if the stack is empty.
 
+class Stack<T> {
+    items: T[] = [];
+
+    push(item: T): void {
+        this.items.push(item);
+    }
+
+    pop(): T | undefined {
+        return this.items.pop();
+    }
+
+    isEmpty(): boolean {
+        return this.items.length === 0;
+    }
+}
+
+const testStack = new Stack<number>();
+testStack.push(10);
+testStack.push(32);
+console.log(testStack.pop()); 
+console.log(testStack.isEmpty());
+
+const stringStack = new Stack<string>();
+stringStack.push("test");
+stringStack.push("new Test");
+console.log(stringStack.pop()); 
+console.log(stringStack.isEmpty()); 
+
 
 
 
