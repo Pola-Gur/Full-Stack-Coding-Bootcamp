@@ -64,31 +64,6 @@ console.log(result);
 // A pop method that removes the top element from the stack and returns it.
 // An isEmpty method that checks whether the stack is empty.
 // In this exercise, a generic class Stack<T> represents a stack data structure. The class supports operations such as push, pop, and isEmpty. The push method adds an element of type T to the stack, the pop method removes and returns the top element, and the isEmpty method checks if the stack is empty.
-var Stack = /** @class */ (function () {
-    function Stack() {
-        this.items = [];
-    }
-    Stack.prototype.push = function (item) {
-        this.items.push(item);
-    };
-    Stack.prototype.pop = function () {
-        return this.items.pop();
-    };
-    Stack.prototype.isEmpty = function () {
-        return this.items.length === 0;
-    };
-    return Stack;
-}());
-var testStack = new Stack();
-testStack.push(10);
-testStack.push(32);
-console.log(testStack.pop());
-console.log(testStack.isEmpty());
-var stringStack = new Stack();
-stringStack.push("test");
-stringStack.push("new Test");
-console.log(stringStack.pop());
-console.log(stringStack.isEmpty());
 // exercise 5
 // Description: Create a generic function filterArray that accepts an array and a predicate function, and returns a new array containing elements that satisfy the predicate.
 // Create a generic function filterArray<T> that accepts an array of type T and a predicate function (element: T) => boolean. The function should return a new array containing elements that satisfy the predicate.
