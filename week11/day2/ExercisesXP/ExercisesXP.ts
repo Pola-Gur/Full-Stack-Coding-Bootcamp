@@ -49,23 +49,47 @@ interface Car extends Vehice {
     numberOfDoors: number;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6b17b919d00b57b44f7f7c8f24e09e2245a7820c
 class Sedan implements Car {
     make: string;
     model: string;
     numberOfDoors: number;
+<<<<<<< HEAD
         
+=======
+    
+    
+>>>>>>> 6b17b919d00b57b44f7f7c8f24e09e2245a7820c
     constructor(make: string, model: string, numberOfDoors: number) {
         this.make = make;
         this.model = model;
         this.numberOfDoors = numberOfDoors;
       }
     
+<<<<<<< HEAD
     start(): string {
       return `The ${this.make} ${this.model} is starting.`;
     }
 }
 
 const car1 = new Sedan('Audi', 'A6', 4);
+=======
+      start(): string {
+        return `The ${this.make} ${this.model} is starting.`;
+      }
+}
+
+
+
+
+
+const car1 = new Sedan('Audi', 'A6', 4);
+
+
+>>>>>>> 6b17b919d00b57b44f7f7c8f24e09e2245a7820c
 console.log(car1.make);
 console.log(car1.model);
 console.log(car1.numberOfDoors); 
