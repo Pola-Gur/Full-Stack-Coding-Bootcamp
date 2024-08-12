@@ -39,7 +39,7 @@ var Sedan = /** @class */ (function () {
         this.numberOfDoors = numberOfDoors;
     }
     Sedan.prototype.start = function () {
-        return "The ".concat(this.make, " ").concat(this.model, " is starting.");
+        return "The ".concat(this.make, " ").concat(this.model, ".");
     };
     return Sedan;
 }());
@@ -93,3 +93,16 @@ console.log(stringStack.isEmpty());
 // Description: Create a generic function filterArray that accepts an array and a predicate function, and returns a new array containing elements that satisfy the predicate.
 // Create a generic function filterArray<T> that accepts an array of type T and a predicate function (element: T) => boolean. The function should return a new array containing elements that satisfy the predicate.
 // In this exercise, a generic function filterArray<T> accepts an array of type T and a predicate function (element: T) => boolean. The function returns a new array containing elements that satisfy the predicate function. This approach demonstrates how to use generics with functions to create flexible and reusable code for filtering arrays of various types.
+function filterArray(arr, predicate) {
+    return arr.filter(predicate);
+}
+var myArray = [2, 4, 5, 6, 7, 8, 9];
+var myPredicate = function (el) {
+    if (el % 2 === 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+console.log(filterArray(myArray, myPredicate));

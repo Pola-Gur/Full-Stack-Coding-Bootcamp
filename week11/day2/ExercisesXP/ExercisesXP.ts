@@ -49,47 +49,23 @@ interface Car extends Vehice {
     numberOfDoors: number;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6b17b919d00b57b44f7f7c8f24e09e2245a7820c
 class Sedan implements Car {
     make: string;
     model: string;
     numberOfDoors: number;
-<<<<<<< HEAD
-        
-=======
-    
-    
->>>>>>> 6b17b919d00b57b44f7f7c8f24e09e2245a7820c
+
     constructor(make: string, model: string, numberOfDoors: number) {
         this.make = make;
         this.model = model;
         this.numberOfDoors = numberOfDoors;
       }
     
-<<<<<<< HEAD
     start(): string {
-      return `The ${this.make} ${this.model} is starting.`;
+      return `The ${this.make} ${this.model}.`;
     }
 }
 
 const car1 = new Sedan('Audi', 'A6', 4);
-=======
-      start(): string {
-        return `The ${this.make} ${this.model} is starting.`;
-      }
-}
-
-
-
-
-
-const car1 = new Sedan('Audi', 'A6', 4);
-
-
->>>>>>> 6b17b919d00b57b44f7f7c8f24e09e2245a7820c
 console.log(car1.make);
 console.log(car1.model);
 console.log(car1.numberOfDoors); 
@@ -112,6 +88,7 @@ function combineObjects<U, T>(obj1: U, obj2: T): U & T {
 let result = combineObjects({type:"Fiat", model:"500", color:"white"}, {country:"Italy", year:"1899"})
 
 console.log(result)
+
 
 // exercise 4
 // Description: Create a generic class Stack that represents a stack data structure. The class should support operations like push, pop, and isEmpty.
@@ -150,13 +127,24 @@ stringStack.push("new Test");
 console.log(stringStack.pop()); 
 console.log(stringStack.isEmpty()); 
 
-
-
-
 // exercise 5
 // Description: Create a generic function filterArray that accepts an array and a predicate function, and returns a new array containing elements that satisfy the predicate.
 
 // Create a generic function filterArray<T> that accepts an array of type T and a predicate function (element: T) => boolean. The function should return a new array containing elements that satisfy the predicate.
 // In this exercise, a generic function filterArray<T> accepts an array of type T and a predicate function (element: T) => boolean. The function returns a new array containing elements that satisfy the predicate function. This approach demonstrates how to use generics with functions to create flexible and reusable code for filtering arrays of various types.
 
+function filterArray<T>(arr: T[], predicate: (element: T) => boolean): T[] {
+    return arr.filter(predicate)
+}
 
+let myArray = [2, 4, 5, 6, 7 ,8 ,9]
+const myPredicate = (el) => {
+    if (el%2 === 0) {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+console.log(filterArray(myArray, myPredicate))
