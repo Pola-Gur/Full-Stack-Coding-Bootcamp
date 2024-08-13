@@ -14,6 +14,7 @@ function App() {
       <Counter decrementOnly /> 
       <UserCard/>
       <UserCard name="Some_name" age={100}/>
+      <ComponentuseEffect/>
     </>
   );
 }
