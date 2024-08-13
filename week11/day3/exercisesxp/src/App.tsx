@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Greeting from './components/Greeting';
 import Counter from './components/Counter';
 import UserCard from './components/UserCard';
+import ComponentuseEffect from './components/ComponentuseEffect'
 import './App.css';
 
 function App() {
