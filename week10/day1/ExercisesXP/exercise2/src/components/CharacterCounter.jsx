@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 
 function CharacterCounter() {
     const inputRef = useRef();
-  
+    const [count, setCount] = useState(0);
+
     const handleInputChange = () => {
       const textLength = inputRef.current.value.length;
-      // Update the character count based on textLength
+      setCount(textLength);
     };
   
     return (
@@ -16,7 +16,7 @@ function CharacterCounter() {
           ref={inputRef}
           onChange={handleInputChange}
           placeholder="Type something..."></textarea>
-        <p>Character Count: {/* Display character count here */}</p>
+        <p>Character Count: {count}</p>
       </div>
     );
   }
